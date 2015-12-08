@@ -1,4 +1,9 @@
 RewriteEngine on 
-RewriteCond %{HTTP_HOST} ^107\.170\.3\.242$ [OR]
-RewriteCond %{HTTP_HOST} ^www.mundopremiado.com.br$
-RewriteRule (.*) http://mundopremiado.com.br/$1 [R=301,L]
+#RewriteCond %{HTTP_HOST} ^107\.170\.3\.242$ [OR]
+#RewriteCond %{HTTP_HOST} ^www.mundopremiado.com.br$
+#RewriteRule (.*) http://mundopremiado.com.br/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
