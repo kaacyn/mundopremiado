@@ -1,8 +1,8 @@
 RewriteEngine on 
-AuthType Basic
-AuthName "dev"
-AuthUserFile /var/www/.htpasswd
-Require valid-user
+#AuthType Basic
+#AuthName "dev"
+#AuthUserFile /var/www/.htpasswd
+#Require valid-user
 
 
 #RewriteCond %{HTTP_HOST} ^107\.170\.3\.242$ [OR]
