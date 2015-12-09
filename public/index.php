@@ -1,5 +1,9 @@
 <?php
-
+/*
+if($_SERVER['SERVER_NAME']=='mundopremiado.com.br'):
+	include ("pagina-espera/");
+endif;
+*/
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
