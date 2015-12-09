@@ -1,0 +1,109 @@
+[2015-12-09 01:23:18] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php:7020
+Stack trace:
+#0 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1284): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build(Object(Closure), Array)
+#2 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('encrypter', Array)
+#3 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1329): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#4 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1313): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#5 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1299): Illuminate\Container\Container->getDependencies(Array, Array)
+#6 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#7 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#8 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9577): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#9 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2983): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9577): call_user_func_array(Array, Array)
+#12 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9567): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2249): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#15 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2232): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\mundopremiado\public\index.php(58): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#17 {main}  
+[2015-12-09 01:23:18] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php:7020
+Stack trace:
+#0 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1284): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build(Object(Closure), Array)
+#2 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('encrypter', Array)
+#3 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1329): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#4 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1313): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#5 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1299): Illuminate\Container\Container->getDependencies(Array, Array)
+#6 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#7 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#8 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2256): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#9 C:\wamp\www\mundopremiado\public\index.php(62): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#10 {main}  
+[2015-12-09 01:23:46] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php:7020
+Stack trace:
+#0 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1284): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build(Object(Closure), Array)
+#2 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('encrypter', Array)
+#3 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1329): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#4 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1313): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#5 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1299): Illuminate\Container\Container->getDependencies(Array, Array)
+#6 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#7 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#8 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9577): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#9 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2983): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9577): call_user_func_array(Array, Array)
+#12 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9567): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2249): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#15 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2232): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\mundopremiado\public\index.php(58): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#17 {main}  
+[2015-12-09 01:23:46] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php:7020
+Stack trace:
+#0 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1284): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build(Object(Closure), Array)
+#2 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('encrypter', Array)
+#3 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1329): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#4 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1313): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#5 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1299): Illuminate\Container\Container->getDependencies(Array, Array)
+#6 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#7 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#8 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2256): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#9 C:\wamp\www\mundopremiado\public\index.php(62): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#10 {main}  
+[2015-12-09 01:24:07] production.ERROR: exception 'InvalidArgumentException' with message 'Command "fresh" is not defined.
+
+Did you mean this?
+    migrate:refresh' in C:\wamp\www\mundopremiado\vendor\symfony\console\Application.php:511
+Stack trace:
+#0 C:\wamp\www\mundopremiado\vendor\symfony\console\Application.php(186): Symfony\Component\Console\Application->find('fresh')
+#1 C:\wamp\www\mundopremiado\vendor\symfony\console\Application.php(120): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 C:\wamp\www\mundopremiado\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(107): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\wamp\www\mundopremiado\artisan(36): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 {main}  
+[2015-12-09 01:26:50] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php:7020
+Stack trace:
+#0 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1284): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build(Object(Closure), Array)
+#2 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('encrypter', Array)
+#3 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1329): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#4 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1313): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#5 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1299): Illuminate\Container\Container->getDependencies(Array, Array)
+#6 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#7 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#8 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9577): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#9 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2983): Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#10 [internal function]: Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode->handle(Object(Illuminate\Http\Request), Object(Closure))
+#11 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9577): call_user_func_array(Array, Array)
+#12 [internal function]: Illuminate\Pipeline\Pipeline->Illuminate\Pipeline\{closure}(Object(Illuminate\Http\Request))
+#13 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(9567): call_user_func(Object(Closure), Object(Illuminate\Http\Request))
+#14 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2249): Illuminate\Pipeline\Pipeline->then(Object(Closure))
+#15 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2232): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
+#16 C:\wamp\www\mundopremiado\public\index.php(58): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
+#17 {main}  
+[2015-12-09 01:26:50] production.ERROR: exception 'RuntimeException' with message 'No supported encrypter found. The cipher and / or key length are invalid.' in C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php:7020
+Stack trace:
+#0 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1284): Illuminate\Encryption\EncryptionServiceProvider->Illuminate\Encryption\{closure}(Object(Illuminate\Foundation\Application), Array)
+#1 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build(Object(Closure), Array)
+#2 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('encrypter', Array)
+#3 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1329): Illuminate\Foundation\Application->make('Illuminate\\Cont...')
+#4 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1313): Illuminate\Container\Container->resolveClass(Object(ReflectionParameter))
+#5 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1299): Illuminate\Container\Container->getDependencies(Array, Array)
+#6 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1237): Illuminate\Container\Container->build('App\\Http\\Middle...', Array)
+#7 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(1775): Illuminate\Container\Container->make('App\\Http\\Middle...', Array)
+#8 C:\wamp\www\mundopremiado\bootstrap\cache\compiled.php(2256): Illuminate\Foundation\Application->make('App\\Http\\Middle...')
+#9 C:\wamp\www\mundopremiado\public\index.php(62): Illuminate\Foundation\Http\Kernel->terminate(Object(Illuminate\Http\Request), Object(Illuminate\Http\Response))
+#10 {main}  

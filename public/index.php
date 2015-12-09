@@ -2,6 +2,7 @@
 
 if($_SERVER['SERVER_NAME']=='mundopremiado.com.br'):
 	include ("pagina-espera/index.html");
+	exit;
 endif;
 
 /**
