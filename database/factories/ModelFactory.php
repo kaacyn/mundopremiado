@@ -11,11 +11,20 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->email,
-        'password' => bcrypt(str_random(10)),
-        'remember_token' => str_random(10),
-    ];
-});
+// $factory->define(App\User::class, function (Faker\Generator $faker) {
+//     return [
+//         'name'     => "Jessyka",
+//         'email'    => "jessyka@mundopremiado.com.br",
+//         'password' => bcrypt('tartaruga'),
+//         'remember_token' => "stit",
+//     ];
+// });
+
+// $factory->define(App\User::class, function (Faker\Generator $faker) {
+//     return [
+//         'name'     => "Fabiano",
+//         'email'    => "atendimento@mundopremiado.com.br",
+//         'password' => bcrypt('tartaruga'),
+//         'remember_token' => "stit",
+//     ];
+// });

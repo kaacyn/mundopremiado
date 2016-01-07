@@ -1,0 +1,63 @@
+<?php $__env->startSection('title',  $promocao->titulo." - " ); ?>
+<?php $__env->startSection('description',  "" ); ?>
+<?php $__env->startSection('imagem-social',  asset($promocao->imagem)); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+
+      <h1 class="titulo"><?php echo e($promocao->titulo); ?> </h1>
+      <div class="row">
+      
+        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+         <img alt="<?php echo e($promocao->titulo); ?>" src="<?php echo e(asset($promocao->imagem)); ?>" class="img-resposnsive">
+
+         Data Início: <?php echo e(DateYMDforBR($promocao->data_inicio)); ?><br>
+         Data Fim: <?php echo e(DateYMDforBR($promocao->data_fim)); ?><br>
+         <?php echo e($promocao->url_hotsite); ?><br>
+         <?php echo e($promocao->url_regulamento); ?><br>
+         R$: <?php echo e(DecimalForReal($promocao->valor_premiacao)); ?><br>
+         R$: <?php echo e(DecimalForReal($promocao->valor_minimo)); ?><br>
+         <?php echo e($promocao->regiao); ?><br>
+  
+
+
+        </div>
+        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+	    	<div class="redes-sociais-promocao">
+	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?php echo e($promocao->titulo); ?>" data-description=""></div>
+	    	</div>
+
+        	<?php echo $promocao->descricao; ?>
+
+
+
+			<div id="disqus_thread"></div>
+			<script>
+			    /**
+			     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+			     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
+			     */
+			    /*
+			    var disqus_config = function () {
+			        this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+			        this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+			    };
+			    */
+			    (function() {  // DON'T EDIT BELOW THIS LINE
+			        var d = document, s = d.createElement('script');
+			        
+			        s.src = '//mundopremiado.disqus.com/embed.js';
+			        
+			        s.setAttribute('data-timestamp', +new Date());
+			        (d.head || d.body).appendChild(s);
+			    })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+        </div>
+      </div>
+
+  </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

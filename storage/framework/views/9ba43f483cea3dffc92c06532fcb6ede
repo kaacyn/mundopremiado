@@ -1,0 +1,65 @@
+<?php $__env->startSection('title', "Fale Conosco - " ); ?>
+<?php $__env->startSection('description',  "" ); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+
+    <div class="row">
+    
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+       Para maiores informações entre em contato conosco.
+      </div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+
+        <ul>
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+
+        <?php echo Form::open(array('route' => 'fale-conosco-store', 'class' => 'form')); ?>
+
+
+        <div class="form-group">
+            <?php echo Form::label('Seu Nome'); ?>
+
+            <?php echo Form::text('nome', null, 
+                array('required', 
+                      'class'=>'form-control', 
+                      'placeholder'=>'Seu Nome')); ?>
+
+        </div>
+
+        <div class="form-group">
+            <?php echo Form::label('Seu E-mail'); ?>
+
+            <?php echo Form::text('email', null, 
+                array('required', 
+                      'class'=>'form-control', 
+                      'placeholder'=>'Seu endereço de e-mail')); ?>
+
+        </div>
+
+        <div class="form-group">
+            <?php echo Form::label('Sua mensagem'); ?>
+
+            <?php echo Form::textarea('mensagem', null, 
+                array('required', 
+                      'class'=>'form-control', 
+                      'placeholder'=>'Sua Mensagem')); ?>
+
+        </div>
+
+        <div class="form-group">
+            <?php echo Form::submit('Enviar', 
+              array('class'=>'btn btn-primary')); ?>
+
+        </div>
+        <?php echo Form::close(); ?>
+
+      </div>
+    </div>
+  </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

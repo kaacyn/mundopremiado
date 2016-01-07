@@ -1,0 +1,57 @@
+<?php $__env->startSection('title', " Um mundo de prêmios para você - " ); ?>
+<?php $__env->startSection('description',  "Portal de promoções diversas (promoções, sorteios,premiações, brindes,produtos/serviços/ações promocionais)." ); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+
+    <hr>
+    <?php if(session('message')): ?>
+      <div class="alert alert-info">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <?php echo e(session('message')); ?>
+
+      </div>
+    <?php endif; ?>    
+  
+    <?php foreach($promocoes as $promocao): ?>
+      <div class="box-promocao">
+        <div class="row">
+        
+          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+            <a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->titulo); ?>"><img class="img-responsive" src="<?php echo e(asset($promocao->imagem)); ?>"></a>
+          </div>
+          <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+            <div class="box-promocao-titulo">
+              <a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->getPermaLink()); ?>"><?php echo e($promocao->titulo); ?></a>
+
+              <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?php echo e($promocao->titulo); ?>" data-description=""></div>
+            </div>
+
+            <?=contagemRegressiva(date('Ymd'), $promocao->data_fim);?>,
+           
+            <?php if(!empty($promocao->valor_minimo)): ?>
+             investimento mínimo: <strong>R$: <?php echo DecimalForReal($promocao->valor_minimo); ?></strong>,
+            <?php endif; ?>
+
+            <?php if(!empty($promocao->valor_premiacao)): ?>
+              total em prêmios: <strong>R$ <?php echo DecimalForReal($promocao->valor_premiacao); ?>.</strong>
+            <?php endif; ?>
+
+
+            <?=$promocao->premiacao ?>
+
+            <div class="btn-vermais">
+              <a class="btn" href="<?php echo e($promocao->getPermaLink()); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Mais detalhes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <?php endforeach; ?>
+
+
+
+  </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
