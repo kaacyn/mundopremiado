@@ -57,5 +57,6 @@ src="{{ asset('/assets/js/mundo-premiado-admin.js') }}"></script>
 
 @yield('scripts')
 
+
 </body>
 </html>

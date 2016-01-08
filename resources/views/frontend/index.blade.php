@@ -29,15 +29,8 @@
               <div class="addthis_sharing_toolbox" data-url="{{ $promocao->getPermaLink()  }}" data-title="{{ $promocao->titulo }}" data-description=""></div>
             </div>
 
-            <?=contagemRegressiva(date('Ymd'), $promocao->data_fim);?>,
-           
-            @if(!empty($promocao->valor_minimo))
-             investimento mínimo: <strong>R$: {!! DecimalForReal($promocao->valor_minimo) !!}</strong>,
-            @endif
+            @include('frontend.partials.promocao-info')
 
-            @if(!empty($promocao->valor_premiacao))
-              total em prêmios: <strong>R$ {!! DecimalForReal($promocao->valor_premiacao) !!}.</strong>
-            @endif
 
 
             <?=$promocao->premiacao ?>

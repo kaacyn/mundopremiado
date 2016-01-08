@@ -1,4 +1,4 @@
-<?
+<?php
 
 //Retorna o valor em Real para número decimal
 function RealForDecimal($preco) {
@@ -107,13 +107,13 @@ function contagemRegressiva($data_inicio,$data_fim){
 
 		endforeach;
 
-		return "tempo restante: <strong>". $tempo_concat."</strong>";
+		return "Tempo restante: <strong>". $tempo_concat.",</strong> ";
 
 	elseif($data_inicio ==  $data_fim):
-		return "<strong>encerra hoje, aproveite!</strong>";
+		return "<strong>Essa promoção encerra hoje,</strong> ";
 	else:
 
-		return "<strong>promoção encerrada</strong>";
+		return "<strong>Promoção encerrada,</strong> ";
 
 	endif;
 

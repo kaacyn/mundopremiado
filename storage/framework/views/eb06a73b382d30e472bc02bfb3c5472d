@@ -28,15 +28,8 @@
               <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?php echo e($promocao->titulo); ?>" data-description=""></div>
             </div>
 
-            <?=contagemRegressiva(date('Ymd'), $promocao->data_fim);?>,
-           
-            <?php if(!empty($promocao->valor_minimo)): ?>
-             investimento mínimo: <strong>R$: <?php echo DecimalForReal($promocao->valor_minimo); ?></strong>,
-            <?php endif; ?>
+            <?php echo $__env->make('frontend.partials.promocao-info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-            <?php if(!empty($promocao->valor_premiacao)): ?>
-              total em prêmios: <strong>R$ <?php echo DecimalForReal($promocao->valor_premiacao); ?>.</strong>
-            <?php endif; ?>
 
 
             <?=$promocao->premiacao ?>

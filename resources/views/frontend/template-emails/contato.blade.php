@@ -9,4 +9,4 @@ Mensagem recebida de mundopremiado.com.br
 </p>
 
 
-<b>Mensagem:</b> {{  nl2br($mensagem) }}
+<b>Mensagem:</b> {!!  nl2br($mensagem) !!}

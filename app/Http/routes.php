@@ -12,25 +12,25 @@
 */
 
 
-get('/', 'FrontEnd\FrontEndController@index');
+get('/', 'frontend\FrontEndController@index');
 //get('/fale-conosco', 'FrontEnd\FrontEndController@FaleConosco');
-get('/sobre', 'FrontEnd\FrontEndController@Sobre');
+get('/sobre', 'frontend\FrontEndController@Sobre');
 
-get('/promocoes/{slug}', 'FrontEnd\FrontEndController@showPromocoes');
+get('/promocoes/{slug}', 'frontend\FrontEndController@showPromocoes');
 
 /*Fale conosco*/
 Route::get('fale-conosco', 
-  ['as' => 'fale-conosco', 'uses' => 'FrontEnd\FrontEndController@FaleConosco']);
+  ['as' => 'fale-conosco', 'uses' => 'frontend\FrontEndController@FaleConosco']);
 
 Route::post('fale-conosco', 
-  ['as' => 'fale-conosco-store', 'uses' => 'FrontEnd\FrontEndController@FaleConoscoStore']);
+  ['as' => 'fale-conosco-store', 'uses' => 'frontend\FrontEndController@FaleConoscoStore']);
 
 /*Envio de promoção*/
 Route::get('envie-sua-promocao', 
-  ['as' => 'envie-sua-promocao', 'uses' => 'FrontEnd\FrontEndController@EnvieSuaPromocao']);
+  ['as' => 'envie-sua-promocao', 'uses' => 'frontend\FrontEndController@EnvieSuaPromocao']);
 
 Route::post('envie-sua-promocao', 
-  ['as' => 'envie-sua-promocao-store', 'uses' => 'FrontEnd\FrontEndController@EnvieSuaPromocaoStore']);
+  ['as' => 'envie-sua-promocao-store', 'uses' => 'frontend\FrontEndController@EnvieSuaPromocaoStore']);
 
 
 // SysAdmin area

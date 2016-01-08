@@ -1,6 +1,9 @@
 <?php $__env->startSection('title',  $promocao->titulo." - " ); ?>
 <?php $__env->startSection('description',  "" ); ?>
-<?php $__env->startSection('imagem-social',  asset($promocao->imagem)); ?>
+
+<?php $__env->startSection('social-image',  asset($promocao->imagem)); ?>
+<?php $__env->startSection('social-title',  asset($promocao->titulo)); ?>
+<?php $__env->startSection('social-url',  asset($promocao->getPermaLink())); ?>
 
 <?php $__env->startSection('content'); ?>
 
@@ -10,24 +13,30 @@
       <div class="row">
       
         <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-         <img alt="<?php echo e($promocao->titulo); ?>" src="<?php echo e(asset($promocao->imagem)); ?>" class="img-resposnsive">
+        	<div class="box-img">
+         		<img alt="<?php echo e($promocao->titulo); ?>" src="<?php echo e(asset($promocao->imagem)); ?>" class="img-responsive">
+         	</div>
+         	<div class="box-btn">
+				<a class="btn btn-regulamento" target="_blank"href="<?php echo e($promocao->url_regulamento); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Leia o regulamento</a>
 
-         Data Início: <?php echo e(DateYMDforBR($promocao->data_inicio)); ?><br>
-         Data Fim: <?php echo e(DateYMDforBR($promocao->data_fim)); ?><br>
-         <?php echo e($promocao->url_hotsite); ?><br>
-         <?php echo e($promocao->url_regulamento); ?><br>
-         R$: <?php echo e(DecimalForReal($promocao->valor_premiacao)); ?><br>
-         R$: <?php echo e(DecimalForReal($promocao->valor_minimo)); ?><br>
-         <?php echo e($promocao->regiao); ?><br>
-  
+	  			<a class="btn btn-participe" target="_blank" href="<?php echo e($promocao->url_hotsite); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Participe</a>
+	  		</div>
 
+	  		<div class="mais-promocoes">
+	  			<h2>Outras promoções</h2>
+	  			<? foreach($outraspromocoes as $promocao): ?>
+	  				<h3><a href="<?=$promocao->getPermaLink() ?>" title="<?=$promocao->titulo?>"><?=$promocao->titulo?></a></h3>
 
+	  			<? endforeach; ?>
+	  		</div>
         </div>
         <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 	    	<div class="redes-sociais-promocao">
 	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?php echo e($promocao->titulo); ?>" data-description=""></div>
 	    	</div>
 
+            <?php echo $__env->make('frontend.partials.promocao-info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
+		
         	<?php echo $promocao->descricao; ?>
 
 

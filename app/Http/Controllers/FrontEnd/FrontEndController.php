@@ -33,13 +33,15 @@ class FrontEndController extends Controller
         $promocao = Promocoes::whereSlug($slug)->firstOrFail();
 
         Breadcrumbs::addBreadcrumb('Home', url('/'));
-        Breadcrumbs::addBreadcrumb('Promoções', $promocao->getPermaLink()); //Does not need a url because it's the last breadcrumb segment
+        Breadcrumbs::addBreadcrumb('Promoções', url('/')); //Does not need a url because it's the last breadcrumb segment
         Breadcrumbs::addBreadcrumb( $promocao->titulo, $promocao->getPermaLink());
         $breadcrumb = Breadcrumbs::generate(); //Breadcrumbs UL is generated and stored in an array.
         
+        # outras promoções
 
+        $outraspromocoes = Promocoes::orderByRaw("RAND()")->limit(5)->get();
 
-        return view('frontend.showpromocoes',compact('promocao','breadcrumb')) ;      
+        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes')) ;      
 
     }
 

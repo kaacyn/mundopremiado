@@ -1,3 +1,6 @@
+<?php $__env->startSection('title', "Sobre - " ); ?>
+<?php $__env->startSection('description',  "Portal de promoções diversas (promoções, sorteios,premiações, brindes,produtos/serviços/ações promocionais)." ); ?>
+
 <?php $__env->startSection('content'); ?>
 
   <div class="container">

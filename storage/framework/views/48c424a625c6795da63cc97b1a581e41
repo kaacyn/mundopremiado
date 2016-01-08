@@ -8,7 +8,16 @@
     <div class="row">
     
       <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-       Para maiores informações entre em contato conosco.
+        <p>
+          Para enviar uma promoção basta preencher o formulário ao lado. 
+       </p>
+       <p>
+        É obrigatório informar o hotsite com informações e regulamento.
+       </p>
+       Após o envio a promoção será analisa e cadastrada o mais rápido possível. Você será notificado por e-mail.
+       <p>
+       Para outras informações entre em <a href="<?php echo e(url('/fale-conosco')); ?>">contato conosco.</a>
+       </p>
       </div>
       <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
 

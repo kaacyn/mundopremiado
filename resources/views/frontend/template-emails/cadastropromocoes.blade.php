@@ -12,4 +12,4 @@ Mensagem recebida de mundopremiado.com.br
 <b>Hotsite:</b> {{ $hotsite }}
 </p>
 
-<b>Observação:</b> {{  nl2br($observacao) }}
+<b>Observação:</b> {!!  nl2br($observacao) !!}

@@ -57,5 +57,6 @@ src="<?php echo e(asset('/assets/js/mundo-premiado-admin.js')); ?>"></script>
 
 <?php echo $__env->yieldContent('scripts'); ?>
 
+
 </body>
 </html>

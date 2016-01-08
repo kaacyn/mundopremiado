@@ -68,6 +68,46 @@ h1.titulo{
 	margin-bottom: 30px;
 }
 
+.promocoes strong{
+	font-weight: bold;
+}
+
+.promocoes .btn-regulamento,
+.promocoes .btn-participe{
+	background-color: #A3B368;
+}
+
+.promocoes .btn-regulamento,
+.promocoes .btn-participe{
+	background-color: #A3B368;
+	color:#FFF;
+}
+
+.promocoes .box-btn{
+	text-align: right;
+	margin-bottom: 30px;
+}
+
+.promocoes .box-img{
+	margin-bottom: 15px;
+}
+
+.promocoes .mais-promocoes{
+	line-height: 28px;
+}
+
+.promocoes .mais-promocoes h2{
+	background-color: #EFEFEF;
+	padding: 4px 10px;
+	font-size: 16px;
+	margin-bottom: 15px;
+
+}
+
+.promocoes .bar-info{
+	margin-bottom: 15px;
+}
+
 .promocoes .redes-sociais-promocao span.info{
 	position: absolute;
 	right: 110px;
@@ -168,10 +208,19 @@ header .menu ul li a{
 
 }
 
+.bar-info{
+	background-color: #EFEFEF;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	padding: 10px 8px;
+	margin-bottom: 15px;
 
-.box-promocao strong{
+}
+
+.bar-info strong{
 	font-weight: bold;
 	color: #0F5914;
+	white-space: nowrap;
 }
 
 .box-promocao-titulo{

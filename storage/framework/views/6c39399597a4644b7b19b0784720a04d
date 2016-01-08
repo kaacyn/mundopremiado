@@ -1,0 +1,21 @@
+<?php $__env->startSection('title', " Página não encontrada - " ); ?>
+<?php $__env->startSection('description',  "Portal de promoções diversas (promoções, sorteios,premiações, brindes,produtos/serviços/ações promocionais)." ); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+    <div class="row">
+    
+      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+       
+      </div>
+      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <br /><br /><br /><br /><br /><br /><br />
+        <h1 class="titulo">Página não encontrada</h1>
+        <br /><br /><br /><br /><br /><br /><br />
+      </div>
+    </div>
+
+  </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
