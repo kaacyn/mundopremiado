@@ -35,6 +35,14 @@
             )) 
             !!}
 
+
+            <div class="form-group">
+                {!! Form::radio('situacao', 'pendente', true, array('id'=>'situacao-pendente')) !!}
+                {!! Form::label('situacao-pendente', 'Pendente', ['class' => 'control-label']) !!} 
+
+                {!! Form::radio('situacao', 'publicado', false ,array('id' => 'situacao-publicado')) !!}
+                {!! Form::label('situacao-publicado', 'Publicado', ['class' => 'control-label']) !!} 
+            </div>
             <div class="form-group">
                 {!! Form::label('titulo', 'Titulo:', ['class' => 'control-label']) !!}
                 {!! Form::text('titulo', null, ['class' => 'form-control']) !!}
@@ -88,10 +96,32 @@
                 {!! Form::label('valor_premiacao', 'Total em prêmios:', ['class' => 'control-label']) !!}
                 {!! Form::text('valor_premiacao', RealForDecimal($promocao->valor_premiacao), ['class' => 'form-control mask_money','placeholder' => 'Valor total em prêmios (R$)']) !!}
             </div>
-
+            
             <div class="form-group">
-                {!! Form::label('premiacao', 'Prêmios:', ['class' => 'control-label']) !!}
-                {!! Form::text('premiacao', null, ['class' => 'form-control','placeholder' => 'Prêmios separados por virgula']) !!}
+              <h3>Cadastro de prêmios</h3>
+
+              <hr/>
+
+              <div ng-app="angularjs-premios" id="premios-box" ng-controller="MainCtrl">
+
+                 <fieldset  data-ng-repeat="choice in choices">
+                  <input type="number" class="text_quantidade" maxlength="6" ng-model="choice.quantidade" name="premios[quantidade][]" placeholder="Quantidade">
+                    <input type="text" class="text_nome" ng-model="choice.nome" name="premios[nome][]" placeholder="Nome">
+                    <input type="text" class="mask_money text_valor" ng-model="choice.valor" name="premios[valor][]" placeholder="Valor unitário (R$)">
+                    <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+                 </fieldset>
+  
+                 <button type="button" class="addfields" ng-click="addNewChoice()">Adicionar Prêmio</button>
+
+              </div>
+
+              <script type="text/javascript">
+              var premios_arr = <? echo json_encode($premios); ?>;
+              </script>
+            </div>
+            <div class="form-group">
+                {!! Form::label('premiacao', 'Descrição premiação:', ['class' => 'control-label']) !!}
+                {!! Form::textarea('premiacao', null, ['class' => 'form-control','placeholder' => 'Descrição premiação separados por virgula']) !!}
             </div>
 
             <div class="form-group">
@@ -104,7 +134,12 @@
                 {!! Form::textarea('descricao', $promocao->descricao, ['class' => 'form-control']) !!}
             </div>
 
-            {!! Form::submit('Atualizar Promoções', array('class' => 'btn btn-primary')) !!}
+
+
+
+
+
+            {!! Form::submit('Atualizar promoção', array('class' => 'btn btn-primary')) !!}
 
             {!! Form::close() !!}
           </div>

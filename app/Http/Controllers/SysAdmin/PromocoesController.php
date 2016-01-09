@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Promocoes;
+use App\Premios;
+
+
 use Illumniate\Html\HtmlServiceProvider;
 
 
@@ -27,7 +30,7 @@ class PromocoesController extends Controller
     public function index()
     {
 
-        $promocoes = Promocoes::orderBy('titulo')->get();
+        $promocoes = Promocoes::orderBy('id', 'DESC')->get();
 
         return view('sysadmin.promocoes.index', compact('promocoes'));
     }
@@ -82,6 +85,7 @@ class PromocoesController extends Controller
             // store
             $promocao = new Promocoes;
             $promocao->titulo            = Input::get('titulo');
+            $promocao->situacao          = Input::get('situacao');
             $promocao->descricao         = Input::get('descricao');
             $promocao->url_hotsite       = Input::get('url_hotsite');
             $promocao->url_regulamento   = Input::get('url_regulamento');
@@ -101,6 +105,25 @@ class PromocoesController extends Controller
 
             $this->salveImagem(  $file, $promocao, $request );
 
+
+            $premios      =    Input::get('premios');  
+
+            $x = 0;
+            if(!empty($premios)):
+
+             foreach($premios as $premio):
+                if(!( empty ($premios['nome'][$x] ) )):
+                    $premioPromocao               = new Premios;
+                    $premioPromocao->prom_id      = $promocao->id;
+                    $premioPromocao->nome         = $premios['nome'][$x];
+                    $premioPromocao->quantidade   = $premios['quantidade'][$x];
+                    $premioPromocao->valor        = RealForDecimal($premios['valor'][$x]);
+                    $premioPromocao->save(); 
+                endif;
+                $x++;
+             endforeach;
+
+            endif;
 
             // redirect
             Session::flash('message', 'Promoção criado com sucesso');
@@ -134,10 +157,14 @@ class PromocoesController extends Controller
     {
         // get the produto
         $promocao = Promocoes::find($id);
+        $premios = Premios::where('prom_id', $promocao->id)->get(); 
+
+
 
         // show the edit form and pass the produto
         return View::make('sysadmin.promocoes.edit')
-            ->with('promocao', $promocao);
+            ->with('promocao', $promocao)
+            ->with('premios',$premios );
 
 
     }
@@ -177,8 +204,11 @@ class PromocoesController extends Controller
             // store
             $promocao = Promocoes::find($id);
             $promocao->titulo            = Input::get('titulo');
+            $promocao->situacao            = Input::get('situacao');
             $promocao->slug              = Input::get('slug');
             $promocao->descricao         = Input::get('descricao');
+
+
             $promocao->url_hotsite       = Input::get('url_hotsite');
             $promocao->url_regulamento   = Input::get('url_regulamento');
             $promocao->valor_minimo      = RealForDecimal(Input::get('valor_minimo'));
@@ -195,6 +225,30 @@ class PromocoesController extends Controller
             $file = Input::file('imagem');
 
             $this->salveImagem(  $file, $promocao, $request );
+
+             $premios      =    Input::get('premios');  
+
+             //echo "<pre>";
+           //  print_r($premios['nome'][0]); exit;
+
+            Premios::where('prom_id', $promocao->id)->delete();
+
+             $x = 0;
+             if(!empty($premios)):
+
+                 foreach($premios as $premio):
+                    if(!( empty ($premios['nome'][$x] ) )):
+                        $premioPromocao               = new Premios;
+                        $premioPromocao->prom_id      = $promocao->id;
+                        $premioPromocao->nome         = $premios['nome'][$x];
+                        $premioPromocao->quantidade   = $premios['quantidade'][$x];
+                        $premioPromocao->valor        = RealForDecimal($premios['valor'][$x]);
+                        $premioPromocao->save(); 
+                    endif;
+                    $x++;
+                 endforeach;
+
+              endif;
 
             // redirect
             Session::flash('message', 'Promoção atualizado com sucesso');

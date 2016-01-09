@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="shanidkvApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,21 +39,22 @@
 
 @yield('content')
 
-<script
-src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script
-src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
 <script src="{{ asset('assets/plugins/mask/src/jquery.mask.js') }}"></script>
 <script src="{{ asset('assets/plugins/datepicker/js/bootstrap-datepicker.js') }}"></script>
 
-<link href="{{ asset('assets/plugins/datepicker/css/bootstrap-datepicker.min.css') }}"
-        rel="stylesheet">
-        
-<script
-src="{{ asset('/assets/js/mundo-premiado-admin.js') }}"></script>
+
+       
+<script src="{{ asset('/assets/js/angular.min.js') }}"></script> 
+<script src="{{ asset('/assets/js/mundo-premiado-admin.js') }}"></script>
+
+<link href="{{ asset('assets/plugins/datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet">
+
+<link href="{{ asset('assets/css/mundo-premiado-admin.css') }}" rel="stylesheet">
 
 @yield('scripts')
 

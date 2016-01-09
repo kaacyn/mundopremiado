@@ -35,11 +35,11 @@
 
                     </div>
                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                      <?php echo e($promocao->titulo); ?>
-
+                      <?php echo e($promocao->titulo); ?> <strong><?=($promocao->situacao=='publicado'?"Publicado":"Pendente"); ?></strong>
                         
                                         
                     </div>
+                      
                   </div>
                   <hr>
                 </div>

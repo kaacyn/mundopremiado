@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Promocoes;
+use App\Premios;
 use Mail;
 Use Breadcrumb;
 
@@ -20,7 +21,7 @@ class FrontEndController extends Controller
     public function index()
     {
 
-        $promocoes = Promocoes::orderBy('titulo')->get();
+        $promocoes = Promocoes::where('situacao', 'publicado')->orderBy('titulo')->get();
 
 
         return view('frontend.index', compact('promocoes'));
@@ -41,7 +42,9 @@ class FrontEndController extends Controller
 
         $outraspromocoes = Promocoes::orderByRaw("RAND()")->limit(5)->get();
 
-        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes')) ;      
+        $premios = Premios::where('prom_id', $promocao->id)->get(); 
+
+        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes','premios')) ;      
 
     }
 

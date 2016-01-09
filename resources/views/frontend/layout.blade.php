@@ -32,6 +32,7 @@
   <link rel="stylesheet" type="text/css" href="css/calculotributo.css">
   @yield('styles')
 
+  <meta name="keywords" content="concursos culturais, sorteios, promoções, premiações">
   <meta property="og:image:width" content="456"/>
   <meta property="og:image:height" content="240"/>
   <meta property="og:url" content="@yield('social-url')"/>
@@ -49,9 +50,9 @@
         </div>
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
           <div class="logo">
-            <h1><a href="<?=url('/') ?>" title="Mundo Premiado">Mundo Premiado</a></h1>
+            <a href="<?=url('/') ?>" class="nome" title="Mundo Premiado">Mundo Premiado</a>
             <!--  <h2>Prêmios sem limites</h2> -->
-            <h2><a href="<?=url('/') ?>" title="Mundo Premiado">Um mundo de prêmios para você</a></h2>
+            <a href="<?=url('/') ?>" class="slogan" title="Mundo Premiado">Um mundo de prêmios para você</a>
           </div>
         </div>
       </div>

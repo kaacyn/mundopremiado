@@ -17,15 +17,19 @@
          		<img alt="<?php echo e($promocao->titulo); ?>" src="<?php echo e(asset($promocao->imagem)); ?>" class="img-responsive">
          	</div>
          	<div class="box-btn">
-				<a class="btn btn-regulamento" target="_blank"href="<?php echo e($promocao->url_regulamento); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Leia o regulamento</a>
+         		<? if(!empty($promocao->url_regulamento)): ?>
+					<a class="btn btn-regulamento" rel="nofollow" target="_blank"href="<?php echo e($promocao->url_regulamento); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Leia o regulamento</a>
+				<? endif; ?>
 
-	  			<a class="btn btn-participe" target="_blank" href="<?php echo e($promocao->url_hotsite); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Participe</a>
+				<? if(!empty($promocao->url_hotsite)): ?>
+	  				<a class="btn btn-participe" rel="nofollow"  target="_blank" href="<?php echo e($promocao->url_hotsite); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Participe</a>
+	  			<? endif?>
 	  		</div>
 
 	  		<div class="mais-promocoes">
 	  			<h2>Outras promoções</h2>
-	  			<? foreach($outraspromocoes as $promocao): ?>
-	  				<h3><a href="<?=$promocao->getPermaLink() ?>" title="<?=$promocao->titulo?>"><?=$promocao->titulo?></a></h3>
+	  			<? foreach($outraspromocoes as $outrapromocao): ?>
+	  				<h3><a href="<?=$outrapromocao->getPermaLink() ?>" title="<?=$outrapromocao->titulo?>"><?=$outrapromocao->titulo?></a></h3>
 
 	  			<? endforeach; ?>
 	  		</div>
@@ -36,12 +40,39 @@
 	    	</div>
 
             <?php echo $__env->make('frontend.partials.promocao-info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
-		
+			
+			<div class="descricao">
         	<?php echo $promocao->descricao; ?>
 
+        	</div>
+        	<div class="tabela-premios">
+	        	<? if(!empty($premios)): ?>
+		        	<h2>Tabela de prêmios</h2>
+		        	<table>
+		        		<thead>
+			        		<tr>
+			        			<th class="quantidade">Quantidade</th>
+			        			<th class="nome">Nome</td>
+			        			<th class="valor">Valor unitário</th>
+			        		</tr>
+			        	 </thead>
 
+		        		<? foreach($premios as $premio): ?>
+		         		<tr>
+		        			<td class="quantidade"><?=str_pad($premio->quantidade, 5, "0", STR_PAD_LEFT);?></td>
+		        			<td class="nome"><?=$premio->nome?></td>
+		        			<td class="valor">R$ <?=DecimalForReal($premio->valor)?></td>
+		        		</tr>
+		        		<? endforeach; ?>
+		        	</table>
+		        <? endif?>
+		    </div>
+		    <div class="nota">
+		    	NOTA: Todos os dados acima foram coletados do regulamento oficial da promoção com a proposta de lhe apresentar em uma forma mais simples e objetiva. Essas informações podem estar desatualizadas ou sujeitas a erros. Não deixe de ler o regulamento oficial da promoção antes de qualquer ação. Caso encontre alguma inconformidade <strong><a href="<?php echo e(URL::to('fale-conosco')); ?>" title="Fale Conosco">entre em contato conosco</a></strong>. 
+		    </div>
 
 			<div id="disqus_thread"></div>
+
 			<script>
 			    /**
 			     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.

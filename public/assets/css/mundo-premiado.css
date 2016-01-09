@@ -108,6 +108,22 @@ h1.titulo{
 	margin-bottom: 15px;
 }
 
+.promocoes .descricao{
+	margin-bottom: 30px;
+}
+
+.promocoes .nota{
+	background-color: #F7F796;
+	margin-bottom: 60px;
+	font-size: 10px;
+	line-height: 18px;
+	padding: 12px;
+}
+
+.promocoes .descricao a{
+	font-weight: bold;
+}
+
 .promocoes .redes-sociais-promocao span.info{
 	position: absolute;
 	right: 110px;
@@ -119,6 +135,55 @@ h1.titulo{
 	margin-right: 5px;
 }
 
+.promocoes .tabela-premios h2{
+	padding: 4px 10px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	background-color: #C5CE9F;
+}
+
+.promocoes .tabela-premios table {
+	margin-bottom: 30px;
+}
+
+.promocoes .tabela-premios table thead,
+.promocoes .tabela-premios table tfoot{
+	font-weight: bold;
+	/*background-color: #EEEEEE;*/
+}
+
+.promocoes .tabela-premios table td,
+.promocoes .tabela-premios table th{
+	padding: 5px 10px;
+
+}
+
+.promocoes .tabela-premios table td{
+	border: 1px solid #EFEFEF;
+}
+
+.promocoes .tabela-premios table th.valor,
+.promocoes .tabela-premios table th.nome{
+	padding: 5px 10px;
+	border-left: 1px solid #EFEFEF;
+}
+
+.promocoes .tabela-premios table td.valor{
+	text-align: right;
+	vertical-align: middle;
+}
+
+.promocoes .tabela-premios table .quantidade{
+	min-width: 140px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.promocoes .tabela-premios table th.valor{
+	min-width: 140px;
+	text-align: right;
+	word-wrap: break-word;
+}
 
 a,a:hover{
 	color: #0F5914;
@@ -128,22 +193,22 @@ header{
 	margin-bottom: 30px;
 }
 
-header .logo h2 a:hover,
-header .logo h1 a:hover{
+header .logo .slogan a:hover,
+header .logo .nome a:hover{
 	text-decoration: none;
 }
 
-header .logo h1{
+header .logo .nome {
 	font-size: 42px;
 	margin-bottom: 8px;
 }
 
-header .logo h2{
+header .logo .slogan{
 	font-size: 14px;
 }
 
 
-header h1{
+header .nome{
 	margin-top: 80px;
 	font-size: 35px;
 }

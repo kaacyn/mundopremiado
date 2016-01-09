@@ -15,6 +15,7 @@ class CreatePromocoesTable extends Migration
         Schema::create('promocoes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
+            $table->string('situacao');
             $table->string('slug')->unique();
             $table->string('data_inicio');
             $table->string('data_fim');
@@ -26,7 +27,7 @@ class CreatePromocoesTable extends Migration
             $table->decimal('valor_minimo');
             $table->decimal('valor_premiacao');
 
-            $table->string('premiacao');
+            $table->textarea('premiacao');
 
             $table->decimal('regiao');
 

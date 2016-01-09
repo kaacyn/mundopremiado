@@ -36,10 +36,11 @@
 
                     </div>
                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                      {{ $promocao->titulo }}
+                      {{ $promocao->titulo }} <strong><?=($promocao->situacao=='publicado'?"Publicado":"Pendente"); ?></strong>
                         
                                         
                     </div>
+                      
                   </div>
                   <hr>
                 </div>

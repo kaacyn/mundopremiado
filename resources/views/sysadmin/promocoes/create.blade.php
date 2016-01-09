@@ -5,6 +5,16 @@
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
+          <script type="text/javascript" src="{{ asset('/assets/plugins/tinymce/tinymce.min.js') }}"></script>
+          <script type="text/javascript">
+            tinymce.init({
+              selector : "textarea",
+              plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
+              toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+            }); 
+          </script>
+
+
           <div class="panel-heading">
             <h3 class="panel-title">Promoção</h3>
           </div>
@@ -23,6 +33,14 @@
                 'route' => 'sysadmin.promocoes.store',
                 'files' => true
             ]) !!}
+
+            <div class="form-group">
+                {!! Form::radio('situacao', 'pendente', true, array('id'=>'situacao-pendente')) !!}
+                {!! Form::label('situacao-pendente', 'Pendente', ['class' => 'control-label']) !!} 
+
+                {!! Form::radio('situacao', 'publicado', false ,array('id' => 'situacao-publicado')) !!}
+                {!! Form::label('situacao-publicado', 'Publicado', ['class' => 'control-label']) !!} 
+            </div>
 
             <div class="form-group">
                 {!! Form::label('titulo', 'Título:', ['class' => 'control-label']) !!}
@@ -58,10 +76,29 @@
                 {!! Form::label('valor_premiacao', 'Total em prêmios:', ['class' => 'control-label']) !!}
                 {!! Form::text('valor_premiacao', null, ['class' => 'form-control mask_money','placeholder' => 'Valor total em prêmios (R$)']) !!}
             </div>
-
             <div class="form-group">
-                {!! Form::label('premiacao', 'Prêmios:', ['class' => 'control-label']) !!}
-                {!! Form::text('premiacao', null, ['class' => 'form-control','placeholder' => 'Prêmios separados por virgula']) !!}
+              <h3>Cadastro de prêmios</h3>
+
+              <hr/>
+
+              <div ng-app="angularjs-premios" id="premios-box" ng-controller="MainCtrl">
+
+                 <fieldset  data-ng-repeat="choice in choices">
+                  <input type="number" class="text_quantidade" maxlength="6" ng-model="choice.quantidade" name="premios[quantidade][]" placeholder="Quantidade">
+                    <input type="text" class="text_nome" ng-model="choice.nome" name="premios[nome][]" placeholder="Nome">
+                    <input type="text" class="mask_money text_valor" ng-model="choice.valor" name="premios[valor][]" placeholder="Valor unitário (R$)">
+                    <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+                 </fieldset>
+  
+                 <button type="button" class="addfields" ng-click="addNewChoice()">Adicionar Prêmio</button>
+              </div>
+              <script type="text/javascript">
+                var premios_arr =  [{id: 'choice1'}, {id: 'choice2'}];
+              </script>
+            </div>
+            <div class="form-group">
+                {!! Form::label('premiacao', 'Descrição dos prêmios:', ['class' => 'control-label']) !!}
+                {!! Form::textarea('premiacao', null, ['class' => 'form-control','placeholder' => 'Descrição dos prêmios']) !!}
             </div>
 
             <div class="form-group">
