@@ -44,6 +44,8 @@ class FrontEndController extends Controller
 
         $premios = Premios::where('prom_id', $promocao->id)->get(); 
 
+
+
         return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes','premios')) ;      
 
     }

@@ -105,7 +105,7 @@
               <div ng-app="angularjs-premios" id="premios-box" ng-controller="MainCtrl">
 
                  <fieldset  data-ng-repeat="choice in choices">
-                  <input type="number" class="text_quantidade" maxlength="6" ng-model="choice.quantidade" name="premios[quantidade][]" placeholder="Quantidade">
+                    <input type="text" class="text_quantidade" maxlength="6" ng-model="choice.quantidade" name="premios[quantidade][]" placeholder="Quantidade">
                     <input type="text" class="text_nome" ng-model="choice.nome" name="premios[nome][]" placeholder="Nome">
                     <input type="text" class="mask_money text_valor" ng-model="choice.valor" name="premios[valor][]" placeholder="Valor unitário (R$)">
                     <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>

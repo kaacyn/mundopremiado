@@ -53,7 +53,7 @@
 		        		<thead>
 			        		<tr>
 			        			<th class="quantidade">Quantidade</th>
-			        			<th class="nome">Nome</td>
+			        			<th class="nome">Descrição do prêmio</td>
 			        			<th class="valor">Valor unitário</th>
 			        		</tr>
 			        	 </thead>

@@ -106,24 +106,25 @@ class PromocoesController extends Controller
             $this->salveImagem(  $file, $promocao, $request );
 
 
-            $premios      =    Input::get('premios');  
 
-            $x = 0;
-            if(!empty($premios)):
+             $x = 0;
 
-             foreach($premios as $premio):
-                if(!( empty ($premios['nome'][$x] ) )):
-                    $premioPromocao               = new Premios;
-                    $premioPromocao->prom_id      = $promocao->id;
-                    $premioPromocao->nome         = $premios['nome'][$x];
-                    $premioPromocao->quantidade   = $premios['quantidade'][$x];
-                    $premioPromocao->valor        = RealForDecimal($premios['valor'][$x]);
-                    $premioPromocao->save(); 
-                endif;
-                $x++;
-             endforeach;
+             if(!empty($premios)):
 
-            endif;
+                 foreach($premios['quantidade'] as $premio):
+                    if( $premios['quantidade'][$x] != 0 ):
+
+                        $premioPromocao               = new Premios;
+                        $premioPromocao->prom_id      = $promocao->id;
+                        $premioPromocao->nome         = $premios['nome'][$x];
+                        $premioPromocao->quantidade   = $premios['quantidade'][$x];
+                        $premioPromocao->valor        = RealForDecimal($premios['valor'][$x]);
+                        $premioPromocao->save(); 
+                    endif;
+                    $x++;
+                 endforeach;
+                // exit;
+              endif;
 
             // redirect
             Session::flash('message', 'Promoção criado com sucesso');
@@ -234,10 +235,12 @@ class PromocoesController extends Controller
             Premios::where('prom_id', $promocao->id)->delete();
 
              $x = 0;
+
              if(!empty($premios)):
 
-                 foreach($premios as $premio):
-                    if(!( empty ($premios['nome'][$x] ) )):
+                 foreach($premios['quantidade'] as $premio):
+                    if( $premios['quantidade'][$x] != 0 ):
+
                         $premioPromocao               = new Premios;
                         $premioPromocao->prom_id      = $promocao->id;
                         $premioPromocao->nome         = $premios['nome'][$x];
@@ -247,7 +250,7 @@ class PromocoesController extends Controller
                     endif;
                     $x++;
                  endforeach;
-
+                // exit;
               endif;
 
             // redirect

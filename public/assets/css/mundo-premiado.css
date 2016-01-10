@@ -201,10 +201,12 @@ header .logo .nome a:hover{
 header .logo .nome {
 	font-size: 42px;
 	margin-bottom: 8px;
+	display: block;
 }
 
 header .logo .slogan{
 	font-size: 14px;
+	display: block;
 }
 
 
@@ -269,7 +271,7 @@ header .menu ul li a{
 .box-promocao .btn-vermais a{
     color: #FFF;
     background-color: #A3B368;
-    border-color: #0F5914;
+/*    border-color: #0F5914;*/
 
 }
 

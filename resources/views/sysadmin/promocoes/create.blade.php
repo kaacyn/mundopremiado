@@ -70,7 +70,7 @@
 
             <div class="form-group">
                 {!! Form::label('valor_minimo', 'Valor Mínimo:', ['class' => 'control-label']) !!}
-                {!! Form::text('valor_minimo', null, ['class' => 'form-control']) !!}
+                {!! Form::text('valor_minimo', null, ['class' => 'form-control mask_money']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('valor_premiacao', 'Total em prêmios:', ['class' => 'control-label']) !!}
