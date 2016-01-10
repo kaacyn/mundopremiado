@@ -24,12 +24,12 @@ class CreatePromocoesTable extends Migration
             $table->string('url_hotsite');
             $table->string('url_regulamento');
 
-            $table->decimal('valor_minimo');
-            $table->decimal('valor_premiacao');
+            $table->decimal('valor_minimo',10,2);
+            //$table->decimal('valor_premiacao',10,2);
 
             $table->textarea('premiacao');
 
-            $table->decimal('regiao');
+            $table->string('regiao');
 
             $table->text('descricao');
 

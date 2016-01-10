@@ -90,7 +90,7 @@ class PromocoesController extends Controller
             $promocao->url_hotsite       = Input::get('url_hotsite');
             $promocao->url_regulamento   = Input::get('url_regulamento');
             $promocao->valor_minimo      = RealForDecimal(Input::get('valor_minimo'));
-            $promocao->valor_premiacao   = RealForDecimal(Input::get('valor_premiacao'));
+           // $promocao->valor_premiacao   = RealForDecimal(Input::get('valor_premiacao'));
             $promocao->regiao            = Input::get('regiao');
             $promocao->premiacao         = Input::get('premiacao');
             $promocao->data_inicio       = DateBRForYMD(Input::get('data_inicio'));
@@ -106,6 +106,7 @@ class PromocoesController extends Controller
             $this->salveImagem(  $file, $promocao, $request );
 
 
+             $premios      =    Input::get('premios');  
 
              $x = 0;
 
@@ -213,7 +214,7 @@ class PromocoesController extends Controller
             $promocao->url_hotsite       = Input::get('url_hotsite');
             $promocao->url_regulamento   = Input::get('url_regulamento');
             $promocao->valor_minimo      = RealForDecimal(Input::get('valor_minimo'));
-            $promocao->valor_premiacao   = RealForDecimal(Input::get('valor_premiacao'));
+           // $promocao->valor_premiacao   = RealForDecimal(Input::get('valor_premiacao'));
             $promocao->regiao            = Input::get('regiao');
             $promocao->premiacao         = Input::get('premiacao');
             $promocao->data_inicio       = DateBRForYMD(Input::get('data_inicio'));

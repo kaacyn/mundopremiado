@@ -45,10 +45,10 @@
     <div class="container">
       <div class="row">
       
-        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-          <a href="<?=url('/') ?>" title="Mundo Premiado"><img src="{{ asset('/assets/images/mascote.jpg') }}" alt="Mundo Premiado"></a>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2">
+          <a href="<?=url('/') ?>" class="imagem_logo" title="Mundo Premiado"><img src="{{ asset('/assets/images/mascote.jpg') }}" alt="Mundo Premiado"></a>
         </div>
-        <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10">
           <div class="logo">
             <a href="<?=url('/') ?>" class="nome" title="Mundo Premiado">Mundo Premiado</a>
             <!--  <h2>Prêmios sem limites</h2> -->
@@ -61,14 +61,14 @@
     <section class="menu">
       <div class="container">
           <div class="row">
-            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+            <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
                 <ul>
                   <li><a href="{{ URL::to('/') }}" title="Página principal">Página principal</a></li>
                   <li><a href="{{ URL::to('envie-sua-promocao') }}" title="Envie sua prmoção">Envie sua promoção</a></li>
                   <li><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco">Fale Conosco</a></li>
                 </ul>
             </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 hidden-xs hidden-sm">
                 <ul class="redes-sociais">
                   <li><a href="https://twitter.com/mundopremiado" target="_blank" title="Acesse nosso twitter"><img src="{{ asset('/assets/images/twitter_square-48.png') }}"></a></li>
                   <li><a href="https://www.facebook.com/mundopremiado/" target="_blank" title="Acesse nossa página no facebook"><img src="{{ asset('/assets/images/facebook_square-48.png') }}"></a></li>
@@ -107,14 +107,15 @@
 
     <div class="row">
     
-      <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+      <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
         <ul>
-          <li><a href="{{ URL::to('sobre') }}" title="Sobre o Mundo Premiado">Sobre o Mundo Premiado</a></li>
           <li><a href="{{ URL::to('fale-conosco') }}" title="Fale conosco">Fale conosco</a></li>
+          <li><a href="{{ URL::to('sobre') }}" title="Sobre o Mundo Premiado">Sobre o Mundo Premiado</a></li>
+          <li><a href="{{ URL::to('politica-de-privacidade') }}" title="Política de Privacidade">Política de Privacidade</a></li>
         </ul>
       </div>
 
-      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 hidden-xs hidden-sm">
 
         <div class="fb-page" data-href="https://www.facebook.com/mundopremiado/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/mundopremiado/"><a href="https://www.facebook.com/mundopremiado/">Mundo Premiado</a></blockquote></div></div>
 
@@ -124,17 +125,15 @@
 
 
  
-    <script
-    src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script
-    src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     
-
+    <script src="{{ asset('/assets/js/mundo-premiado.js') }}"></script>  
     <link href="{{ asset('assets/fonts/ubuntu/stylesheet.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/mundo-premiado.css') }}" rel="stylesheet">
-            
-    <script
-    src="{{ asset('/assets/js/mundo-premiado.js') }}"></script>
+
+    <script   src="{{ asset('/assets/js/mundo-premiado.js') }}"></script>
+
     @yield('scripts')
   </div>
 </footer>

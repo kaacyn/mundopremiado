@@ -14,7 +14,7 @@
       <h1 class="titulo">{{ $promocao->titulo }} </h1>
       <div class="row">
       
-        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+        <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
         	<div class="box-img">
          		<img alt="{{ $promocao->titulo }}" src="{{  asset($promocao->imagem) }}" class="img-responsive">
          	</div>
@@ -36,7 +36,7 @@
 	  			<? endforeach; ?>
 	  		</div>
         </div>
-        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+        <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 	    	<div class="redes-sociais-promocao">
 	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="{{ $promocao->getPermaLink()  }}" data-title="{{ $promocao->titulo }}" data-description=""></div>
 	    	</div>
@@ -46,28 +46,37 @@
 			<div class="descricao">
         	{!!  $promocao->descricao !!}
         	</div>
-        	<div class="tabela-premios">
-	        	<? if(!empty($premios)): ?>
-		        	<h2>Tabela de prêmios</h2>
-		        	<table>
-		        		<thead>
-			        		<tr>
-			        			<th class="quantidade">Quantidade</th>
-			        			<th class="nome">Descrição do prêmio</td>
-			        			<th class="valor">Valor unitário</th>
-			        		</tr>
-			        	 </thead>
+        		<? $premios = $promocao->premios()->get();
 
-		        		<? foreach($premios as $premio): ?>
-		         		<tr>
-		        			<td class="quantidade"><?=str_pad($premio->quantidade, 5, "0", STR_PAD_LEFT);?></td>
-		        			<td class="nome"><?=$premio->nome?></td>
-		        			<td class="valor">R$ <?=DecimalForReal($premio->valor)?></td>
-		        		</tr>
-		        		<? endforeach; ?>
-		        	</table>
+	        	if(!empty($premios) and count($premios) > 0): ?>
+					<div class="tabela-premios">
+						<h2>Tabela de prêmios</h2>
+						<table>
+							<thead>
+								<tr>
+									<th class="quantidade">Quantidade</th>
+									<th class="nome">Descrição do prêmio</td>
+									<th class="valor">Valor unitário</th>
+								</tr>
+							 </thead>
+
+							<? foreach($premios as $premio): ?>
+								<tr>
+								<td class="quantidade"><?=str_pad($premio->quantidade, 5, "0", STR_PAD_LEFT);?></td>
+								<td class="nome"><?=$premio->nome?></td>
+								<td class="valor"><?=($premio->valor!=0?"R$ ".DecimalForReal($premio->valor):"Valor não fornecido")?></td>
+							</tr>
+							<? endforeach; ?>
+							<tr>
+								<td colspan="2" class="total-em-premios">Total em prêmios</td>
+								<td class="valor">R$ <?php echo DecimalForReal($promocao->getTotalPremiacao()); ?></td>
+							</tr>
+						</table>
+						
+						<!-- <span class="observacao">* Valor simbólico. O valor não fornecido no regulamento oficial da promoção.</span> -->
+					</div>
 		        <? endif?>
-		    </div>
+		    
 		    <div class="nota">
 		    	NOTA: Todos os dados acima foram coletados do regulamento oficial da promoção com a proposta de lhe apresentar em uma forma mais simples e objetiva. Essas informações podem estar desatualizadas ou sujeitas a erros. Não deixe de ler o regulamento oficial da promoção antes de qualquer ação. Caso encontre alguma inconformidade <strong><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco">entre em contato conosco</a></strong>. 
 		    </div>

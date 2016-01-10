@@ -6,6 +6,6 @@
 	<? endif;?>
 
 	<? if(!empty($promocao->valor_premiacao)): ?>
-	  total em prêmios: <strong>R$ <?=DecimalForReal($promocao->valor_premiacao); ?>.</strong>
+	  total em prêmios: <strong>R$ <?php echo DecimalForReal($promocao->getTotalPremiacao()); ?>.</strong>
 	<?endif;?>
 </div>

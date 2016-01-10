@@ -32,7 +32,8 @@ Route::get('envie-sua-promocao',
 Route::post('envie-sua-promocao', 
   ['as' => 'envie-sua-promocao-store', 'uses' => 'frontend\FrontEndController@EnvieSuaPromocaoStore']);
 
-
+Route::get('politica-de-privacidade', 
+  ['as' => 'politica-de-privacidade', 'uses' => 'frontend\FrontEndController@PoliticaPrivacidade']);
 // SysAdmin area
 
 get('sysadmin', function () {

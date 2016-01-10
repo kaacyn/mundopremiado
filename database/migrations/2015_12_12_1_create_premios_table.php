@@ -15,8 +15,8 @@ class CreatePremiosTable extends Migration
         Schema::create('premios', function (Blueprint $table) {
             $table->integer('prom_id');
             $table->integer('quantidade');
-            $table->string('nome');
-            $table->decimal('valor');
+            $table->text('nome');
+            $table->decimal('valor',10,2);
         });
 
         Schema::table('premios', function($table) {

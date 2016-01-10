@@ -33,7 +33,7 @@ class FrontEndController extends Controller
 
         $promocao = Promocoes::whereSlug($slug)->firstOrFail();
 
-        Breadcrumbs::addBreadcrumb('Home', url('/'));
+        //Breadcrumbs::addBreadcrumb('Home', url('/'));
         Breadcrumbs::addBreadcrumb('Promoções', url('/')); //Does not need a url because it's the last breadcrumb segment
         Breadcrumbs::addBreadcrumb( $promocao->titulo, $promocao->getPermaLink());
         $breadcrumb = Breadcrumbs::generate(); //Breadcrumbs UL is generated and stored in an array.
@@ -42,18 +42,14 @@ class FrontEndController extends Controller
 
         $outraspromocoes = Promocoes::orderByRaw("RAND()")->limit(5)->get();
 
-        $premios = Premios::where('prom_id', $promocao->id)->get(); 
-
-
-
-        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes','premios')) ;      
+        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes')) ;      
 
     }
 
     public function FaleConosco(){
         //https://packagist.org/packages/mjanssen/laravel-5-breadcrumbs
         //Those are required to set some breadcrumbs first.
-        Breadcrumbs::addBreadcrumb('Home', url('/'));
+        Breadcrumbs::addBreadcrumb('Promoções', url('/'));
         Breadcrumbs::addBreadcrumb('Fale Conosco', url('/fale-conosco')); //Does not need a url because it's the last breadcrumb segment
         $breadcrumb = Breadcrumbs::generate(); //Breadcrumbs UL is generated and stored in an array.
         
@@ -94,7 +90,7 @@ class FrontEndController extends Controller
     public function Sobre(){
         //https://packagist.org/packages/mjanssen/laravel-5-breadcrumbs
 
-        Breadcrumbs::addBreadcrumb('Home', url('/'));
+        Breadcrumbs::addBreadcrumb('Promoções', url('/'));
         Breadcrumbs::addBreadcrumb('Sobre', url('/sobre')); //Does not need a url because it's the last breadcrumb segment
         $breadcrumb = Breadcrumbs::generate(); //Breadcrumbs UL is generated and stored in an array.
         
@@ -104,7 +100,7 @@ class FrontEndController extends Controller
 
     public function EnvieSuaPromocao(){
 
-        Breadcrumbs::addBreadcrumb('Home', url('/'));
+        Breadcrumbs::addBreadcrumb('Promoções', url('/'));
         Breadcrumbs::addBreadcrumb('Envie sua promoção', url('/envie-sua-promocao')); 
         $breadcrumb = Breadcrumbs::generate();
         
@@ -144,5 +140,17 @@ class FrontEndController extends Controller
 
       //  return view('frontend.fale-conosco');
     }
+
+    public function PoliticaPrivacidade(){
+
+        Breadcrumbs::addBreadcrumb('Promoções', url('/'));
+        Breadcrumbs::addBreadcrumb('Política de privacidade', url('/politica-de-privacidade')); 
+        $breadcrumb = Breadcrumbs::generate();
+        
+        return view('frontend.politica_privacidade',compact('breadcrumb'));
+      //  return view('frontend.fale-conosco');
+    }
+
+
 
 }

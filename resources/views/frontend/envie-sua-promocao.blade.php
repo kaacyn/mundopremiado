@@ -9,9 +9,9 @@
 
     <div class="row">
     
-      <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+      <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5">
         <p>
-          Para enviar uma promoção basta preencher o formulário ao lado. 
+          Para enviar uma promoção basta preencher o formulário nessa página. 
        </p>
        <p>
         É obrigatório informar o hotsite com informações e regulamento.
@@ -21,7 +21,7 @@
        Para outras informações entre em <a href="{{ url('/fale-conosco') }}">contato conosco.</a>
        </p>
       </div>
-      <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+      <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7">
 
         <ul>
             @foreach($errors->all() as $error)

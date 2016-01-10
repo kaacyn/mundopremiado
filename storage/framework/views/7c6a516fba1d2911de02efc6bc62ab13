@@ -85,7 +85,7 @@
             <div class="form-group">
                 <?php echo Form::label('valor_minimo', 'Valor Mínimo:', ['class' => 'control-label']); ?>
 
-                <?php echo Form::text('valor_minimo', null, ['class' => 'form-control']); ?>
+                <?php echo Form::text('valor_minimo', null, ['class' => 'form-control mask_money']); ?>
 
             </div>
             <div class="form-group">

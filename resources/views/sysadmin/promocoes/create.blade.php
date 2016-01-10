@@ -72,10 +72,7 @@
                 {!! Form::label('valor_minimo', 'Valor Mínimo:', ['class' => 'control-label']) !!}
                 {!! Form::text('valor_minimo', null, ['class' => 'form-control mask_money']) !!}
             </div>
-            <div class="form-group">
-                {!! Form::label('valor_premiacao', 'Total em prêmios:', ['class' => 'control-label']) !!}
-                {!! Form::text('valor_premiacao', null, ['class' => 'form-control mask_money','placeholder' => 'Valor total em prêmios (R$)']) !!}
-            </div>
+
             <div class="form-group">
               <h3>Cadastro de prêmios</h3>
 
