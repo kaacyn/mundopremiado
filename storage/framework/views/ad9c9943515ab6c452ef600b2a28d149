@@ -1,0 +1,174 @@
+<!--
+Copyright (C) 2015 Luiz Augusto R. C. (luizrocha13@gmail.com)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+        <style type="text/css">
+          *{padding: 0; margin: 0; font-family: Arial;}
+          #fundo{background: #444;width: 300px;height: 300px;text-align: center;margin: 0 auto;}
+          ul, div#vez{list-style-type: none; width:300px;margin: 0 auto;}
+          ul li{display: inline-block; width: 70px;}
+          .titulo{text-align: center; color: #fff;
+          background-image: linear-gradient(to bottom, #111, #444);padding: 8px;font: Arial;}
+          .alerta{position: absolute;margin: 0 auto;left: 0;right: 0;margin-left: auto;
+          margin-right: auto;width: 300px;height:150px;background: rgba(150, 150, 150, 0.8);
+          border-radius: 7px;bottom: 0;top:0;margin-top: auto;margin-bottom: auto;display: none;}
+          .msg{height: 48%; padding: 5%;color: #f40;text-align: center;font-size: 20pt;
+          line-height: 60px; font-weight: bold}
+          .botao{ height: 30%; text-align: center;}
+          button{width:90%; height: 100%;}
+        </style>
+      
+      <div class="alerta">
+        <div class="msg"></div>
+        <div class="botao">
+          <button type="button" id="ok" onclick="$$('.alerta').style.display='none'; jogo.limparJogo();">Jogar Novamente</button>
+        </div>
+      </div>
+		<div id="fundo">
+			<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="300" id="svg2">
+			<g transform="translate(0,-752.36224)" id="layer1">
+			<rect width="95" height="95" x="-5.0000004e-08" y="752.36224" id="A" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('A')"/>
+			<rect width="95" height="95" x="102.5" y="752.36224" id="B" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('B')"/>
+			<rect width="95" height="95" x="205" y="752.36224" id="C" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('C')"/>
+			<rect width="95" height="95" x="0" y="854.86224" id="D" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('D')"/>
+			<rect width="95" height="95" x="102.5" y="854.86224" id="E" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('E')"/>
+			<rect width="95" height="95" x="205" y="854.86224" id="F" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('F')"/>
+			<rect width="95" height="95" x="0" y="957.36224" id="G" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('G')"/>
+			<rect width="95" height="95" x="102.5" y="957.36224" id="H" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('H')"/>
+			<rect width="95" height="95" x="205" y="957.36224" id="I" style="fill:#ffffff;fill-opacity:1;stroke:none" onclick="botaoClicado('I')"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,35.424336,784.41759)" id="OA" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 23.687502,755.70599 -20.3437501,20.34375 23.8125001,23.8125 -23.8125001,23.8125 20.3437501,20.34375 23.8125,-23.8125 23.812496,23.8125 20.34375,-20.34375 -23.8125,-23.8125 23.8125,-23.8125 -20.34375,-20.34375 -23.812496,23.8125 -23.8125,-23.8125 z" id="XA" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,137.92433,784.41759)" id="OB" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,240.42433,784.41759)" id="OC" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 126.1875,755.70599 -20.34375,20.34375 23.8125,23.8125 -23.8125,23.8125 20.34375,20.34375 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.34375 -23.8125,-23.8125 23.8125,-23.8125 L 173.8125,755.70599 150,779.51849 126.1875,755.70599 z" id="XB" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 228.68749,755.70599 -20.34375,20.34375 23.8125,23.8125 -23.8125,23.8125 20.34375,20.34375 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.34375 -23.8125,-23.8125 23.8125,-23.8125 -20.34375,-20.34375 -23.8125,23.8125 -23.8125,-23.8125 z" id="XC" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,35.424336,886.91759)" id="OD" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 23.6875,858.20599 -20.34375,20.34375 23.8125,23.8125 -23.8125,23.8125 20.34375,20.34375 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.34375 -23.8125,-23.8125 23.8125,-23.8125 L 71.3125,858.20599 47.5,882.01849 23.6875,858.20599 z" id="XD" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,137.92434,886.91759)" id="OE" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 126.1875,858.20599 -20.34375,20.34375 23.8125,23.8125 -23.8125,23.8125 20.34375,20.34375 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.34375 -23.8125,-23.8125 23.8125,-23.8125 L 173.8125,858.20599 150,882.01849 126.1875,858.20599 z" id="XE" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,240.42434,886.91759)" id="OF" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 228.6875,858.20599 -20.34375,20.34375 23.8125,23.8125 -23.8125,23.8125 20.34375,20.34375 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.34375 -23.8125,-23.8125 23.8125,-23.8125 -20.34375,-20.34375 -23.8125,23.8125 -23.8125,-23.8125 z" id="XF" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,35.424336,989.41759)" id="OG" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 23.6875,960.70599 -20.34375,20.34375 23.8125,23.81246 -23.8125,23.8125 20.34375,20.3438 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.3438 -23.8125,-23.8125 23.8125,-23.81246 L 71.3125,960.70599 47.5,984.51849 23.6875,960.70599 z" id="XG" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,137.92434,989.41759)" id="OH" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 126.1875,960.70599 -20.34375,20.34375 23.8125,23.81246 -23.8125,23.8125 20.34375,20.3438 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.3438 -23.8125,-23.8125 23.8125,-23.81246 L 173.8125,960.70599 150,984.51849 126.1875,960.70599 z" id="XH" style="fill:#008080;stroke:none;display:none"/>
+			<path class="path" d="m 90.913725,32.29937 a 65.659912,65.659912 0 1 1 -131.319824,0 65.659912,65.659912 0 1 1 131.319824,0 z" transform="matrix(0.47817191,0,0,0.4781719,240.42434,989.41759)" id="OI" style="fill:none;stroke:#ff0000;stroke-width:54.92282104;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:none"/>
+			<path class="path" d="m 228.6875,960.70599 -20.34375,20.34375 23.8125,23.81246 -23.8125,23.8125 20.34375,20.3438 23.8125,-23.8125 23.8125,23.8125 20.34375,-20.3438 -23.8125,-23.8125 23.8125,-23.81246 -20.34375,-20.34375 -23.8125,23.8125 -23.8125,-23.8125 z" id="XI" style="fill:#008080;stroke:none;display:none"/>
+			</g>
+			</svg>
+		</div>
+		<script type="text/javascript">
+		    var mapa = '', jogada_anterior = '', onalert = '';
+		    var xpontos = 0, opontos = 0, vpontos = 0, total;
+		    
+		    var $$ = function(str){return document.querySelector(str);};
+		    var get = function(obj){return window.getComputedStyle(obj).getPropertyValue('display')};
+
+		    var jogo = {
+		      alerta: function(msg){
+		        $$('.msg').innerHTML = msg;
+		        $$('.alerta').style.display='block';
+		      },
+		      limparJogo: function (){
+		        mapa = {a:'',b:'',c:'',d:'',e:'',f:'',g:'',h:'',i:''};
+		        total = 0;
+		        var path = document.querySelectorAll('path')
+		        for(i in path){path[i].style.display="none"}
+		      },
+		      
+		      mensagemGanhador: function (jogador){
+		        $$('#opontos').innerHTML = opontos;
+		        $$('#xpontos').innerHTML = xpontos;
+		        $$('#vpontos').innerHTML = vpontos;
+		      
+		        if (jogador == 'x' || jogador == 'o'){
+		            jogo.alerta(jogador.toUpperCase() + ' foi o Vencedor!!');
+		        }else{
+		          jogo.alerta('Deu Velha !!');
+		        }
+		      },
+		      
+		      verificar: function (j){
+		             if(mapa.a == j && mapa.b == j && mapa.c == j){return true;}
+		        else if(mapa.d == j && mapa.e == j && mapa.f == j){return true;}
+		        else if(mapa.g == j && mapa.h == j && mapa.i == j){return true;}
+		        else if(mapa.a == j && mapa.d == j && mapa.g == j){return true;}
+		        else if(mapa.b == j && mapa.e == j && mapa.h == j){return true;}
+		        else if(mapa.c == j && mapa.f == j && mapa.i == j){return true;}
+		        else if(mapa.a == j && mapa.e == j && mapa.i == j){return true;}
+		        else if(mapa.c == j && mapa.e == j && mapa.g == j){return true;}
+		        else if(j == 'v' && mapa.a != '' && mapa.b != '' && mapa.c != '' && mapa.d != '' 
+		                && mapa.e != '' && mapa.f != '' && mapa.g != '' && mapa.h != '' && mapa.i != ''){
+		          return true;
+		        }
+		        return false;
+		      },
+		    
+		      jogar: function (posicao, jogador){
+		        mapa[posicao.toLowerCase()] = jogador;
+		        
+		        if(jogo.verificar('x')){ //X ganhou
+		          xpontos++;
+		          jogada_anterior = 'o';
+		          jogo.mensagemGanhador('x');
+		        }
+		        else if(jogo.verificar('o')){ //O ganhou
+		          opontos++;
+		          jogada_anterior = 'x';
+		          jogo.mensagemGanhador('o');
+		        }
+		        else if(jogo.verificar('v')){ //Deu Velha
+		          vpontos++;
+		          jogo.mensagemGanhador('v');
+		        }
+		      },
+		    
+		      botaoClicado: function(posicao){
+		        onalert = get($$('.alerta'));
+		        if(onalert != 'block'){
+		          x = get($$('#X'+posicao))
+		          o = get($$('#O'+posicao))
+		          
+		          if (jogada_anterior != 'x' && x == 'none' && o == 'none') {
+		            jogada_anterior = 'x';
+		            $$('#X' + posicao).style.display='block';
+		            jogo.jogar(posicao, 'x');
+		          }
+		          
+		          else if (jogada_anterior != 'o' && x == 'none' && o == 'none'){
+		            jogada_anterior = 'o';
+		            $$('#O'+posicao).style.display='block';
+		            jogo.jogar(posicao, 'o');
+		          }
+		          
+		          if(jogada_anterior == 'o'){
+		            $$('#vez').innerHTML = 'Vez do X';
+		          }
+		          else if(jogada_anterior == 'x'){
+		            $$('#vez').innerHTML = 'Vez do O';
+		          }
+		        }
+		      }
+		    };
+		    window.botaoClicado = jogo.botaoClicado;
+		</script>
+	
+		<ul>
+		    <li><b style="font-size:20pt;">X: </b><b id="xpontos" style="font-size:20pt;"></b></li>
+		    <li><b style="font-size:20pt;">O: </b><b id="opontos" style="font-size:20pt;"></b></li>
+		    <li><b style="font-size:20pt;">V: </b><b id="vpontos" style="font-size:20pt;"></b></li>
+		</ul>
+		<p><div id="vez" style="font-size:20pt;font-weight:bold;">Vez do X</div></p>

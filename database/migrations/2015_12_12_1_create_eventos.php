@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePremiosTable extends Migration
+class CreateEventosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,13 @@ class CreatePremiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('premios', function (Blueprint $table) {
+        Schema::create('eventos', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('prom_id');
-            $table->integer('quantidade');
-            $table->text('nome');
             $table->text('descricao');
-            $table->decimal('valor',10,2);
         });
 
-        Schema::table('premios', function($table) {
+        Schema::table('eventos', function($table) {
            $table->foreign('prom_id')->references('id')->on('promocoes');
         });
     }
@@ -34,6 +32,6 @@ class CreatePremiosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('premios');
+        Schema::drop('eventos');
     }
 }

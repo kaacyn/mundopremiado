@@ -2,14 +2,14 @@
 <?php $__env->startSection('description',  "" ); ?>
 
 <?php $__env->startSection('social-image',  asset($promocao->imagem)); ?>
-<?php $__env->startSection('social-title',  asset($promocao->titulo)); ?>
-<?php $__env->startSection('social-url',  asset($promocao->getPermaLink())); ?>
+<?php $__env->startSection('social-title',  $promocao->titulo); ?>
+<?php $__env->startSection('social-url',  $promocao->getPermaLink()); ?>
 
 <?php $__env->startSection('content'); ?>
 
   <div class="container">
 
-      <h1 class="titulo"><?php echo e($promocao->titulo); ?> </h1>
+      <h1 class="titulo"><a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->titulo); ?>"><?php echo e($promocao->titulo); ?></a> </h1>
       <div class="row">
       
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
@@ -36,13 +36,13 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 	    	<div class="redes-sociais-promocao">
-	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?php echo e($promocao->titulo); ?>" data-description=""></div>
+	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?=$promocao->titulo?>"></div>
 	    	</div>
 
             <?php echo $__env->make('frontend.partials.promocao-info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>	
 			
 			<div class="descricao">
-        	<?php echo $promocao->descricao; ?>
+        	<?php echo add_nofollow_content($promocao->descricao); ?>
 
         	</div>
         		<? $premios = $promocao->premios()->get();
@@ -79,6 +79,22 @@
 		    <div class="nota">
 		    	NOTA: Todos os dados acima foram coletados do regulamento oficial da promoção com a proposta de lhe apresentar em uma forma mais simples e objetiva. Essas informações podem estar desatualizadas ou sujeitas a erros. Não deixe de ler o regulamento oficial da promoção antes de qualquer ação. Caso encontre alguma inconformidade <strong><a href="<?php echo e(URL::to('fale-conosco')); ?>" title="Fale Conosco">entre em contato conosco</a></strong>. 
 		    </div>
+
+
+		    <div class="navegacao">
+		    	<div class="anterior">
+					<? if(is_object($previous)):?>
+				    	<a class = "btn btn-participe" href="<?php echo e($previous->getPermaLink()); ?>" title="<?php echo e($previous->titulo); ?>">anterior</a>
+					<? endif ?>
+				</div>
+				<div class="proximo">
+				    <? if(is_object($next)):?>
+				    	<a class = "btn btn-participe" href="<?php echo e($next->getPermaLink()); ?>" title="<?php echo e($next->titulo); ?>">próxima</a>
+					<? endif?>
+				</div>
+			</div>
+			
+
 
 			<div id="disqus_thread"></div>
 

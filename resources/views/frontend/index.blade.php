@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 
-@section('title', " Um mundo de prêmios para você - " )
+@section('title', "Promoções, Sorteios e Prêmios - " )
 @section('description',  "Portal de promoções diversas (promoções, sorteios,premiações, brindes,produtos/serviços/ações promocionais)." )
 
 @section('content')
@@ -20,7 +20,7 @@
         <div class="row">
         
           <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-            <h2><a href="{{ $promocao->getPermaLink() }}" title="{{ $promocao->titulo }}"><img class="img-responsive" src="{{ asset($promocao->imagem) }}"></a></h2>
+            <h2><a href="{{ $promocao->getPermaLink() }}" title="{{ $promocao->titulo }}"><img class="img-responsive" alt="{{ $promocao->titulo }}" src="{{ asset($promocao->imagem) }}"></a></h2>
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
             <div class="box-promocao-titulo">
@@ -30,7 +30,6 @@
             </div>
 
             @include('frontend.partials.promocao-info')
-
 
 
             <?=$promocao->premiacao ?>
@@ -44,7 +43,8 @@
 
     @endforeach
 
-
-
+    <div class="paginacao">
+      {!! $promocoes->render() !!}
+    </div>
   </div>
 @stop

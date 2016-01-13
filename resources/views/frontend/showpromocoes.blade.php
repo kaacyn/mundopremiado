@@ -4,14 +4,14 @@
 @section('description',  "" )
 
 @section('social-image',  asset($promocao->imagem))
-@section('social-title',  asset($promocao->titulo))
-@section('social-url',  asset($promocao->getPermaLink()))
+@section('social-title',  $promocao->titulo)
+@section('social-url',  $promocao->getPermaLink())
 
 @section('content')
 
   <div class="container">
 
-      <h1 class="titulo">{{ $promocao->titulo }} </h1>
+      <h1 class="titulo"><a href="{{ $promocao->getPermaLink() }}" title="{{ $promocao->titulo }}">{{ $promocao->titulo }}</a> </h1>
       <div class="row">
       
         <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
@@ -38,13 +38,13 @@
         </div>
         <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 	    	<div class="redes-sociais-promocao">
-	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="{{ $promocao->getPermaLink()  }}" data-title="{{ $promocao->titulo }}" data-description=""></div>
+	    		<span class="info">Compartilhe essa promoção</span> <div class="addthis_sharing_toolbox" data-url="{{ $promocao->getPermaLink()  }}" data-title="<?=$promocao->titulo?>"></div>
 	    	</div>
 
             @include('frontend.partials.promocao-info')	
 			
 			<div class="descricao">
-        	{!!  $promocao->descricao !!}
+        	{!!  add_nofollow_content($promocao->descricao) !!}
         	</div>
         		<? $premios = $promocao->premios()->get();
 
@@ -80,6 +80,22 @@
 		    <div class="nota">
 		    	NOTA: Todos os dados acima foram coletados do regulamento oficial da promoção com a proposta de lhe apresentar em uma forma mais simples e objetiva. Essas informações podem estar desatualizadas ou sujeitas a erros. Não deixe de ler o regulamento oficial da promoção antes de qualquer ação. Caso encontre alguma inconformidade <strong><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco">entre em contato conosco</a></strong>. 
 		    </div>
+
+
+		    <div class="navegacao">
+		    	<div class="anterior">
+					<? if(is_object($previous)):?>
+				    	<a class = "btn btn-participe" href="{{ $previous->getPermaLink() }}" title="{{ $previous->titulo }}">anterior</a>
+					<? endif ?>
+				</div>
+				<div class="proximo">
+				    <? if(is_object($next)):?>
+				    	<a class = "btn btn-participe" href="{{ $next->getPermaLink() }}" title="{{ $next->titulo }}">próxima</a>
+					<? endif?>
+				</div>
+			</div>
+			
+
 
 			<div id="disqus_thread"></div>
 

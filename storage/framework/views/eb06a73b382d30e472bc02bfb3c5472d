@@ -1,4 +1,4 @@
-<?php $__env->startSection('title', " Um mundo de prêmios para você - " ); ?>
+<?php $__env->startSection('title', "Promoções, Sorteios e Prêmios - " ); ?>
 <?php $__env->startSection('description',  "Portal de promoções diversas (promoções, sorteios,premiações, brindes,produtos/serviços/ações promocionais)." ); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -19,7 +19,7 @@
         <div class="row">
         
           <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-            <h2><a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->titulo); ?>"><img class="img-responsive" src="<?php echo e(asset($promocao->imagem)); ?>"></a></h2>
+            <h2><a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->titulo); ?>"><img class="img-responsive" alt="<?php echo e($promocao->titulo); ?>" src="<?php echo e(asset($promocao->imagem)); ?>"></a></h2>
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
             <div class="box-promocao-titulo">
@@ -29,7 +29,6 @@
             </div>
 
             <?php echo $__env->make('frontend.partials.promocao-info', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-
 
 
             <?=$promocao->premiacao ?>
@@ -43,8 +42,10 @@
 
     <?php endforeach; ?>
 
+    <div class="paginacao">
+      <?php echo $promocoes->render(); ?>
 
-
+    </div>
   </div>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('frontend.layout', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

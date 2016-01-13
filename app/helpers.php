@@ -120,3 +120,17 @@ function contagemRegressiva($data_inicio,$data_fim){
 
 
 }
+
+
+function add_nofollow_content($content) {
+	$content = preg_replace_callback(
+	'/<a[^>]*href=["|\']([^"|\']*)["|\'][^>]*>([^<]*)<\/a>/i',
+	function($m) {
+		if (strpos($m[1],  $_SERVER['SERVER_NAME']) === false && strpos($m[1],  $_SERVER['SERVER_NAME']) === false)
+		return '<a href="'.$m[1].'" rel="nofollow" target="_blank">'.$m[2].'</a>';
+		else
+		return '<a href="'.$m[1].'">'.$m[2].'</a>';
+	},
+	$content);
+	return $content;
+}

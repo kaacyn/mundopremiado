@@ -21,7 +21,7 @@ class FrontEndController extends Controller
     public function index()
     {
 
-        $promocoes = Promocoes::where('situacao', 'publicado')->orderBy('titulo')->get();
+        $promocoes = Promocoes::where('situacao', 'publicado')->orderBy('id','desc')->paginate(15);
 
 
         return view('frontend.index', compact('promocoes'));
@@ -42,7 +42,14 @@ class FrontEndController extends Controller
 
         $outraspromocoes = Promocoes::orderByRaw("RAND()")->limit(5)->get();
 
-        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes')) ;      
+        // get next user
+        $next = Promocoes::where('id', '<', $promocao->id)->where('situacao', 'publicado')->orderBy('id','desc')->first();
+
+        // get previous  user
+        $previous  = Promocoes::where('id', '>', $promocao->id)->where('situacao', 'publicado')->orderBy('id','asc')->first();
+
+
+        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes','next','previous')) ;      
 
     }
 
@@ -150,7 +157,6 @@ class FrontEndController extends Controller
         return view('frontend.politica_privacidade',compact('breadcrumb'));
       //  return view('frontend.fale-conosco');
     }
-
 
 
 }
