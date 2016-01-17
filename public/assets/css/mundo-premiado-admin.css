@@ -52,19 +52,6 @@ fieldset{
 	font-weight: bold;
 }
 
-#premios-box .text_nome{
-
-	width: -moz-calc(60% - 40px);
-
-	/* WebKit */
-	width: -webkit-calc(60% - 40px);
-
-	/* Opera */
-	width: -o-calc(60% - 40px);
-
-	/* Standard */
-	width: calc(60% - 40px);
-}
 
 
 #premios-box .text_valor{

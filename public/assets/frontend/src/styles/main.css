@@ -1,0 +1,425 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body{
+	font-size: 14px;
+	font-family: ubunturegular;
+	line-height: 25px;
+}
+
+p{
+	margin-bottom: 20px;
+}
+
+h1.titulo{
+	font-size: 22px;
+	margin-bottom: 30px;
+}
+
+.promocoes .redes-sociais-promocao{
+	overflow: hidden;
+	text-align: right;
+	background-color: #C5CE9F;
+	position: relative;
+	padding: 4px 4px 0 0;
+	margin-bottom: 30px;
+}
+
+.promocoes strong{
+	font-weight: bold;
+}
+
+.promocoes .btn-regulamento,
+.promocoes .btn-participe{
+	background-color: #A3B368;
+}
+
+.promocoes .btn-regulamento,
+.promocoes .btn-participe{
+	background-color: #A3B368;
+	color:#FFF;
+}
+
+.promocoes .box-btn{
+	text-align: right;
+	margin-bottom: 30px;
+}
+
+.promocoes .box-img{
+	margin-bottom: 15px;
+}
+
+.promocoes .mais-promocoes{
+	line-height: 28px;
+}
+
+.promocoes .mais-promocoes h2{
+	background-color: #EFEFEF;
+	padding: 4px 10px;
+	font-size: 16px;
+	margin-bottom: 15px;
+
+}
+
+.promocoes .bar-info{
+	margin-bottom: 15px;
+}
+
+.promocoes .descricao{
+	margin-bottom: 30px;
+}
+
+.promocoes .nota{
+	background-color: #F7F796;
+	margin-bottom: 30px;
+	font-size: 10px;
+	line-height: 18px;
+	padding: 12px;
+}
+
+.promocoes .descricao a{
+	font-weight: bold;
+}
+
+.promocoes .redes-sociais-promocao span.info{
+	position: absolute;
+	right: 110px;
+}
+
+.promocoes .redes-sociais .addthis_sharing_toolbox{
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+
+.promocoes .tabela-premios h2{
+	padding: 4px 10px;
+	font-size: 16px;
+	margin-bottom: 15px;
+	background-color: #C5CE9F;
+}
+
+.promocoes .tabela-premios .total-em-premios{
+	text-align: right;
+}
+
+.promocoes .tabela-premios table {
+	margin-bottom: 30px;
+	width: 100%;
+}
+
+.promocoes .tabela-premios table thead,
+.promocoes .tabela-premios table tfoot{
+	font-weight: bold;
+	/*background-color: #EEEEEE;*/
+}
+
+.promocoes .tabela-premios table td,
+.promocoes .tabela-premios table th{
+	padding: 5px 10px;
+
+}
+
+.promocoes .tabela-premios table td{
+	border: 1px solid #EFEFEF;
+}
+
+.promocoes .tabela-premios table th.valor,
+.promocoes .tabela-premios table th.nome{
+	padding: 5px 10px;
+	border-left: 1px solid #EFEFEF;
+}
+
+.promocoes .tabela-premios table td.valor{
+	text-align: right;
+	vertical-align: middle;
+}
+
+.promocoes .tabela-premios table .quantidade{
+	min-width: 140px;
+	text-align: right;
+	vertical-align: middle;
+}
+
+.promocoes .tabela-premios table th.valor{
+	min-width: 140px;
+	text-align: right;
+	word-wrap: break-word;
+}
+
+.promocoes  .navegacao{
+	overflow: hidden;
+	margin-bottom: 60px;
+}
+
+.promocoes  .navegacao .anterior{
+	float: left;
+}
+
+.promocoes  .navegacao .proximo{
+	float: right;
+}
+
+a,a:hover{
+	color: #0F5914;
+}
+
+header{
+	margin-bottom: 30px;
+}
+
+header .logo .slogan a:hover,
+header .logo .nome a:hover{
+	text-decoration: none;
+}
+
+header .logo .nome {
+	font-size: 42px;
+	margin-bottom: 8px;
+	display: block;
+}
+
+header .logo .slogan{
+	font-size: 14px;
+	display: block;
+}
+
+
+header .logo .nome{
+	margin-top: 80px;
+	font-size: 35px;
+}
+
+header .menu{
+	background-color: #A3B368;
+}
+
+header .menu.flutuante{
+	position: fixed;
+	top:0;
+	width: 100%;
+	z-index: 999;
+}
+
+header .menu .redes-sociais{
+	text-align: right;
+}
+
+header .menu .redes-sociais li{
+	padding: 18px 2px 0 0;
+}
+
+header .menu .redes-sociais li a{
+	padding: 0;
+}
+
+
+
+header .menu ul li{
+	display: inline-block;
+}
+
+header .menu ul li a{
+	display: inline-block;
+	padding: 18px 15px 18px 0;
+	color:#FFF;
+	font-size: 16px;
+}
+
+.breadcrumb ol{
+	color: #CCC;
+	padding:0;
+}
+
+.breadcrumb ol li{
+	display: inline-block;
+	padding: 0 15px;
+
+}
+
+.box-promocao{
+	margin-bottom: 30px;
+	position: relative;
+	border-bottom: 1px solid #EFEFEF;
+	padding-bottom: 15px;
+}
+
+
+
+.box-promocao .btn-vermais{
+	right: 18px;
+	top: 206px;
+	position: absolute;
+}
+
+.box-promocao .btn-vermais a{
+    color: #FFF;
+    background-color: #A3B368;
+/*    border-color: #0F5914;*/
+
+}
+
+.bar-info{
+	background-color: #EFEFEF;
+	border-radius: 3px;
+	border: 1px solid #CCC;
+	padding: 10px 8px;
+	margin-bottom: 15px;
+
+}
+
+.bar-info strong{
+	font-weight: bold;
+	color: #0F5914;
+	white-space: nowrap;
+}
+
+.box-promocao-titulo{
+	position: relative;
+	padding-right: 100px;
+}
+
+.box-promocao-titulo a{
+	font-size: 22px;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.box-promocao-titulo .addthis_sharing_toolbox{
+	position: absolute;
+	right: 0;
+	top: 0px;
+}
+
+
+.paginacao{
+    text-align: center;
+}
+
+.paginacao .pagination{
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.paginacao .pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover {
+    z-index: 2;
+    color: #FFF;
+    cursor: default;
+    background-color: #A3B368;
+    border-color: #A3B368;
+}
+
+.pagination > li > a, 
+.pagination > li > a:hover,
+.pagination > li > span{
+
+	    color: #A3B368;
+
+}
+
+footer{
+	margin-top: 30px;
+	background-color: #A3B368;
+	padding: 30px 0;
+}
+
+footer ul li a{
+	color:#FFF;
+}
+
+
+@media (max-width : 767px) {
+
+	header .imagem_logo img{
+		margin: 0 auto;
+		display: block;
+	}
+
+	header .logo .nome{
+		margin-top: 30px;
+		font-size: 35px;
+		text-align: center;
+	}
+
+	header .logo .slogan{
+		text-align: center;	
+		margin-bottom: 20px;
+	}
+
+	header .menu.flutuante{
+		position: static;
+		width: 100%;
+	}
+
+
+	.box-promocao img{
+		margin-bottom: 20px;
+	}
+
+	.box-promocao .btn-vermais{
+		right: auto;
+		top: auto;
+		position: static;
+	}
+
+}
+
+@media (min-width : 768px) and (max-width : 991px) {
+
+}
+
+@media (min-width : 992px) and (max-width : 1024px) {
+
+}
+
+@media (min-width : 1024px) and (max-width : 1220px) {
+
+
+}
+
+@media (min-width : 1221px) and (max-width : 1441px) {
+
+}

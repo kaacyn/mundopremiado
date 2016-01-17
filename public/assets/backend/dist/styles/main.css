@@ -1,0 +1,65 @@
+/* ------------------------------------------------------- 
+
+* Filename:     AngularJS Dynamic Form Fields
+* Website:      http://www.shanidkv.com
+* Description:  Shanidkv AngularJS blog
+* Author:       Shanid KV shanidkannur@gmail.com
+
+---------------------------------------------------------*/
+* {
+  font-family: arial;
+  font-size: 13px;
+}
+
+fieldset {
+  background: #FCFCFC;
+  padding: 16px;
+  border: 1px solid #D5D5D5;
+}
+
+.addfields {
+  margin: 10px 0;
+}
+
+#choicesDisplay {
+  padding: 10px;
+  background: #e3fae3;
+  border: 1px solid #abefab;
+  color: #093809;
+}
+
+.remove {
+  background: #C76868;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 24px;
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 3px 9px;
+  vertical-align: top;
+  line-height: 100%;
+}
+
+#premios-box input[type="number"],
+#premios-box input[type="text"] {
+  padding: 5px;
+}
+
+#premios-box .text_quantidade {
+  width: 15%;
+  text-align: center;
+  font-weight: bold;
+}
+
+#premios-box .text_nome {
+  /* WebKit */
+  /* Opera */
+  width: -o-calc(60% - 40px);
+  /* Standard */
+  width: calc(60% - 40px);
+}
+
+#premios-box .text_valor {
+  width: 20%;
+}

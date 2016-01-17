@@ -2,3 +2,8 @@ Homestead.yaml
 Homestead.json
 .env
 .htaccess
+node_modules
+bootstrap/cache
+beta
+public/uploads
+storage
