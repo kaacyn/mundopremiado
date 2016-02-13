@@ -8,7 +8,7 @@
           <script type="text/javascript" src="{{ asset('/assets/plugins/tinymce/tinymce.min.js') }}"></script>
           <script type="text/javascript">
             tinymce.init({
-              selector : "textarea",
+              selector : ".editor",
               plugins : ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"],
               toolbar : "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
             }); 
@@ -56,6 +56,10 @@
                 {!! Form::url('url_hotsite', null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
+                {!! Form::label('url_ganhadores', 'Link Ganhadores:', ['class' => 'control-label']) !!}
+                {!! Form::url('url_ganhadores', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('url_regulamento', 'Link Regulamento:', ['class' => 'control-label']) !!}
                 {!! Form::url('url_regulamento', null, ['class' => 'form-control']) !!}
             </div>
@@ -74,25 +78,40 @@
             </div>
 
             <div class="form-group">
-              <h3>Cadastro de prêmios</h3>
+              <h3>Cadastro de Sorteios e Prêmios</h3>
 
-              <hr/>
+              <div ng-app="angularjs-starter" ng-controller="Sorteios">
+                <fieldset  data-ng-repeat="sorteio in sorteios">
+                  <input type="text" ng-model="sorteio.periodo_inicio" class="datepicker" name="sorteios[<% $index %>][periodo_inicio]" placeholder="Período início">
+                  <input type="text" ng-model="sorteio.periodo_fim" class="datepicker" name="sorteios[<% $index %>][periodo_fim]" placeholder="Período fim">
+                  <input type="text" ng-model="sorteio.data_sorteio" class="datepicker" name="sorteios[<% $index %>][data_sorteio]" placeholder="Data Sorteio">
+                  <input type="text" ng-model="sorteio.observacao" name="sorteios[<% $index %>][observacao]" placeholder="Observação">
+                  <button type="button" class="remove" ng-show="isSorteioRemovivel()" ng-click="removeSorteio($index)">-</button>
+                  <div class="premios">
 
-              <div ng-app="angularjs-premios" id="premios-box" ng-controller="MainCtrl">
+                    <fieldset  data-ng-repeat="premio in sorteio.premios">
+                        <input type="text" class="text_quantidade" maxlength="6" ng-model="premio.quantidade" name="sorteios[<% $parent.$index %>][premios][<% $index %>][quantidade]" placeholder="Quantidade">
+                        <input type="text" class="text_nome" ng-model="premio.nome" name="sorteios[<% $parent.$index %>][premios][<% $index %>][nome]" placeholder="Descrição simples do prêmio">
+                        <input type="text" class="mask_money text_valor" ng-model="premio.valor" name="sorteios[<% $parent.$index %>][premios][<% $index %>][valor]" placeholder="Valor unitário (R$)">
+                        <button type="button" class="remove" ng-show="isPremioRemovivel(sorteio)" ng-click="removePremio($index,sorteio)">-</button>                
+                        <textarea name="sorteios[<% $parent.$index %>][premios][<% $index %>][descricao]"  ng-model="premio.descricao"  placeholder="Descrição copleta do prêmio"></textarea>
 
-                 <fieldset  data-ng-repeat="choice in choices">
-                  <input type="number" class="text_quantidade" maxlength="6" ng-model="choice.quantidade" name="premios[quantidade][]" placeholder="Quantidade">
-                    <input type="text" class="text_nome" ng-model="choice.nome" name="premios[nome][]" placeholder="Nome">
-                    <input type="text" class="mask_money text_valor" ng-model="choice.valor" name="premios[valor][]" placeholder="Valor unitário (R$)">
-                    <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
-                 </fieldset>
-  
-                 <button type="button" class="addfields" ng-click="addNewChoice()">Adicionar Prêmio</button>
+                     </fieldset>
+                     <button type="button" class="addfields" ng-click="addNewPremio(sorteio)">Adicionar Prêmio</button>
+                  </div>
+                </fieldset>
+                   
+                 <button type="button" class="addfields" ng-click="addNewSorteio()">Adicionar Sorteio</button>
+                     
+
               </div>
+
               <script type="text/javascript">
-                var premios_arr =  [{id: 'choice1'}, {id: 'choice2'}];
+                var sorteios_arr = <? echo json_encode($sorteios); ?>;
               </script>
             </div>
+
+            
             <div class="form-group">
                 {!! Form::label('premiacao', 'Descrição dos prêmios:', ['class' => 'control-label']) !!}
                 {!! Form::textarea('premiacao', null, ['class' => 'form-control','placeholder' => 'Descrição dos prêmios']) !!}
@@ -105,7 +124,7 @@
 
             <div class="form-group">
                 {!! Form::label('descricao', 'Descrição:', ['class' => 'control-label']) !!}
-                {!! Form::textarea('descricao', null, ['class' => 'form-control']) !!}
+                {!! Form::textarea('descricao', null, ['class' => 'form-control editor']) !!}
             </div>
 
             {!! Form::submit('Criar nova promoção', ['class' => 'btn btn-primary']) !!}

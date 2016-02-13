@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'mjanssen\\BreadcrumbsBundle\\' => array($vendorDir . '/mjanssen/laravel-5-breadcrumbs/src'),
     'XdgBaseDir\\' => array($vendorDir . '/dnoegel/php-xdg-base-dir/src'),
+    'Watson\\' => array($vendorDir . '/watson/sitemap/src/Watson'),
     'Symfony\\Polyfill\\Util\\' => array($vendorDir . '/symfony/polyfill-util'),
     'Symfony\\Polyfill\\Php56\\' => array($vendorDir . '/symfony/polyfill-php56'),
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),

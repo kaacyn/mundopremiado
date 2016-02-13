@@ -23,7 +23,7 @@
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
             <div class="box-promocao-titulo">
-              <a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->getPermaLink()); ?>"><?php echo e($promocao->titulo); ?></a>
+              <a href="<?php echo e($promocao->getPermaLink()); ?>" title="<?php echo e($promocao->getPermaLink()); ?>"><?php echo e($promocao->titulo); ?> <?php echo e($promocao->date_diff); ?></a>
 
               <div class="addthis_sharing_toolbox" data-url="<?php echo e($promocao->getPermaLink()); ?>" data-title="<?php echo e($promocao->titulo); ?>" data-description=""></div>
             </div>
@@ -34,7 +34,7 @@
             <?=$promocao->premiacao ?>
 
             <div class="btn-vermais">
-              <a class="btn" href="<?php echo e($promocao->getPermaLink()); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Mais detalhes</a>
+              <a class="btn" href="<?php echo e($promocao->getPermaLink()); ?>" title="Saiba mais sobre a promoção <?php echo e($promocao->titulo); ?>">Mais detalhes <?=$promocao->ordem?></a>
             </div>
           </div>
         </div>

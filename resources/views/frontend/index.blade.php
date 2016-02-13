@@ -24,7 +24,7 @@
           </div>
           <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
             <div class="box-promocao-titulo">
-              <a href="{{ $promocao->getPermaLink()  }}" title="{{ $promocao->getPermaLink()  }}">{{ $promocao->titulo }}</a>
+              <a href="{{ $promocao->getPermaLink()  }}" title="{{ $promocao->getPermaLink()  }}">{{ $promocao->titulo }} {{ $promocao->date_diff }}</a>
 
               <div class="addthis_sharing_toolbox" data-url="{{ $promocao->getPermaLink()  }}" data-title="{{ $promocao->titulo }}" data-description=""></div>
             </div>
@@ -35,7 +35,7 @@
             <?=$promocao->premiacao ?>
 
             <div class="btn-vermais">
-              <a class="btn" href="{{ $promocao->getPermaLink()  }}" title="Saiba mais sobre a promoção {{ $promocao->titulo }}">Mais detalhes</a>
+              <a class="btn" href="{{ $promocao->getPermaLink()  }}" title="Saiba mais sobre a promoção {{ $promocao->titulo }}">Mais detalhes <?=$promocao->ordem?></a>
             </div>
           </div>
         </div>

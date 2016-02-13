@@ -1,6 +1,6 @@
 @extends('frontend.layout')
 
-@section('title', "Fale Conosco - " )
+@section('title', "Política de Privacidade - " )
 @section('description',  "" )
 
 @section('content')

@@ -146,6 +146,15 @@ h1.titulo{
 	text-align: right;
 }
 
+.promocoes .tabela-premios{
+	margin-bottom: 30px;
+	overflow: hidden;
+}
+
+.promocoes .tabela-premios a{
+	font-weight: bold;
+}
+
 .promocoes .tabela-premios table {
 	margin-bottom: 30px;
 	width: 100%;

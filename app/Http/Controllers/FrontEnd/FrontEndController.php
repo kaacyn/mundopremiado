@@ -11,6 +11,7 @@ use App\Promocoes;
 use App\Premios;
 use Mail;
 Use Breadcrumb;
+use DB;
 
 use mjanssen\BreadcrumbsBundle\Breadcrumbs;
 use App\Http\Requests\FaleConoscoFormRequest;
@@ -21,10 +22,90 @@ class FrontEndController extends Controller
     public function index()
     {
 
-        $promocoes = Promocoes::where('situacao', 'publicado')->orderBy('id','desc')->paginate(15);
+        /*
+        Query de referência
+        
+        SELECT DATE_FORMAT(periodo_fim, '%Y-%m-%d') AS formated_date,  p1.* from promocoes p1 
+
+        INNER JOIN
+                    sorteios s3 
+                    ON p1.id = s3.prom_id
+        INNER JOIN
+
+                ( 
+                    SELECT s1.prom_id, max(s1.periodo_fim) as data_maxima 
+                    FROM  sorteios s1 
+                    GROUP BY s1.prom_id
+                ) as s2 ON s2.prom_id = p1.id
+                    
+                
+        WHERE 
+
+        s3.periodo_fim > DATE_FORMAT(now(), '%Y%m%d')
+        and     s2.data_maxima=s3.periodo_fim
+
+        group by p1.id
+        ORDER by s3.periodo_fim asc
+
+        */
+
+        //DB::connection()->enableQueryLog();
+
+ 
+        $promocoes = Promocoes::
+         selectRaw("DATE_FORMAT(periodo_fim, '%Y-%m-%d') AS formated_date,  p1.*")
+        ->from("promocoes as p1")
+        ->join('sorteios as s3', 'p1.id', '=', 's3.prom_id')
+        ->join(DB::raw('( 
+                SELECT s1.prom_id, max(s1.periodo_fim) as data_maxima 
+                    FROM  sorteios s1 
+                    GROUP BY s1.prom_id
+                ) as s2'), 's2.prom_id', '=', 'p1.id')
+        ->whereRaw ("s3.periodo_fim >= DATE_FORMAT(now(), '%Y%m%d')")
+        ->whereRaw ("s2.data_maxima=s3.periodo_fim")
+        ->whereRaw ("p1.situacao='publicado'")
+        ->groupBy('p1.id')
+        ->orderBy("s3.periodo_fim","asc")
+        ->paginate(40);
+
+            // $queries = DB::getQueryLog();
+            // echo "<pre>";
+            // print_r($queries);
+            // echo "</pre>";exit;
 
 
         return view('frontend.index', compact('promocoes'));
+
+    }
+
+    public function encerradas()
+    {
+        //DB::connection()->enableQueryLog();
+
+ 
+        $promocoes = Promocoes::
+         selectRaw("DATE_FORMAT(periodo_fim, '%Y-%m-%d') AS formated_date,  p1.*")
+        ->from("promocoes as p1")
+        ->join('sorteios as s3', 'p1.id', '=', 's3.prom_id')
+        ->join(DB::raw('( 
+                SELECT s1.prom_id, max(s1.periodo_fim) as data_maxima 
+                    FROM  sorteios s1 
+                    GROUP BY s1.prom_id
+                ) as s2'), 's2.prom_id', '=', 'p1.id')
+        ->whereRaw ("s3.periodo_fim < DATE_FORMAT(now(), '%Y%m%d')")
+        ->whereRaw ("s2.data_maxima=s3.periodo_fim")
+        ->whereRaw ("p1.situacao='publicado'")
+        ->groupBy('p1.id')
+        ->orderBy("s3.periodo_fim","asc")
+        ->paginate(40);
+
+            // $queries = DB::getQueryLog();
+            // echo "<pre>";
+            // print_r($queries);
+            // echo "</pre>";exit;
+
+
+        return view('frontend.encerradas', compact('promocoes'));
 
     }
 
@@ -39,8 +120,23 @@ class FrontEndController extends Controller
         $breadcrumb = Breadcrumbs::generate(); //Breadcrumbs UL is generated and stored in an array.
         
         # outras promoções
+        $outraspromocoes = Promocoes::
+         selectRaw("DATE_FORMAT(periodo_fim, '%Y-%m-%d') AS formated_date,  p1.*")
+        ->from("promocoes as p1")
+        ->join('sorteios as s3', 'p1.id', '=', 's3.prom_id')
+        ->join(DB::raw('( 
+                SELECT s1.prom_id, max(s1.periodo_fim) as data_maxima 
+                    FROM  sorteios s1 
+                    GROUP BY s1.prom_id
+                ) as s2'), 's2.prom_id', '=', 'p1.id')
+        ->whereRaw ("s3.periodo_fim >= DATE_FORMAT(now(), '%Y%m%d')")
+        ->whereRaw ("s2.data_maxima=s3.periodo_fim")
+        ->whereRaw ("p1.situacao='publicado'")
+        ->groupBy('p1.id')
+        ->orderByRaw("RAND()")
+        ->limit(5)->get();
 
-        $outraspromocoes = Promocoes::orderByRaw("RAND()")->limit(5)->get();
+       // $outraspromocoes = Promocoes::orderByRaw("RAND()")->limit(5)->get();
 
         // get next user
         $next = Promocoes::where('id', '<', $promocao->id)->where('situacao', 'publicado')->orderBy('id','desc')->first();

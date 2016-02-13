@@ -1,7 +1,7 @@
 @extends('frontend.layout')
 
 @section('title', "Sobre - " )
-@section('description',  "Portal de promoções diversas (promoções, sorteios,premiações, brindes,produtos/serviços/ações promocionais)." )
+@section('description',  "" )
 
 @section('content')
 

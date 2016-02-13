@@ -125,7 +125,7 @@ gulp.task('default', ['clean'], function() {
 gulp.task('watch', function() {
 
   // Watch .scss files
-  gulp.watch('public/assets/frontend/src/styles/**/*.scss', ['styles']);
+  gulp.watch('public/assets/frontend/src/styles/**/*.css', ['styles']);
 
   // Watch .js files
   gulp.watch('public/assets/frontend/src/scripts/**/*.js', ['scripts']);

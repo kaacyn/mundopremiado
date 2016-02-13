@@ -18,6 +18,14 @@ get('/sobre', 'frontend\FrontEndController@Sobre');
 
 get('/promocoes/{slug}', 'frontend\FrontEndController@showPromocoes');
 
+
+
+Route::get('sitemap.xml', 
+  ['as' => 'sitemap', 'uses' => 'frontend\SitemapsController@index']);
+
+Route::get('encerradas', 
+  ['as' => 'encerradas', 'uses' => 'frontend\FrontEndController@encerradas']);
+
 /*Fale conosco*/
 Route::get('fale-conosco', 
   ['as' => 'fale-conosco', 'uses' => 'frontend\FrontEndController@FaleConosco']);

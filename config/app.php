@@ -145,6 +145,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        #sitemaps
+        'Watson\Sitemap\SitemapServiceProvider'
+
         #Breadcrumb
         //Mj\Breadcrumb\BreadcrumbServiceProvider
 
@@ -198,6 +201,9 @@ return [
         'View'      => Illuminate\Support\Facades\View::class,
         'Form'      => 'Illuminate\Html\FormFacade',
         'HTML'      => 'Illuminate\Html\HtmlFacade',
+
+        #sitemaps
+        'Sitemap' => 'Watson\Sitemap\Facades\Sitemap'
        // 'Breadcrumb' => 'Mj\Breadcrumb\Facades\breadcrumb'
     ],
 

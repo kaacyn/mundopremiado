@@ -17,21 +17,22 @@ class CreatePromocoesTable extends Migration
             $table->string('titulo');
             $table->string('situacao');
             $table->string('slug')->unique();
-            $table->string('data_inicio');
-            $table->string('data_fim');
+            $table->string('data_inicio')->nullable();
+            $table->string('data_fim')->nullable();
             $table->string('imagem');
 
             $table->string('url_hotsite');
             $table->string('url_regulamento');
+            $table->string('url_ganhadores');
 
             $table->decimal('valor_minimo',10,2);
             //$table->decimal('valor_premiacao',10,2);
 
-            $table->textarea('premiacao');
+            $table->text('premiacao');
 
             $table->string('regiao');
 
-            $table->text('descricao');
+            $table->longText('descricao');
 
             $table->timestamps();
             $table->timestamp('published_at')->index();

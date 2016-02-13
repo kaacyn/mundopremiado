@@ -62,16 +62,17 @@
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
                 <ul>
-                  <li><a href="{{ URL::to('/') }}" title="Página principal">Página principal</a></li>
+                  <li><a href="{{ URL::to('/') }}" title="Promoções">Promoções Abertas</a></li>
+                  <li><a href="{{ URL::to('encerradas') }}" title="Promoções Encerradas">Promoções Encerradas</a></li>
                   <li><a href="{{ URL::to('envie-sua-promocao') }}" title="Envie sua prmoção">Envie sua promoção</a></li>
                   <li><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco">Fale Conosco</a></li>
                 </ul>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 hidden-xs hidden-sm">
                 <ul class="redes-sociais">
-                  <li><a href="https://twitter.com/mundopremiado" target="_blank" title="Acesse nosso twitter"><img src="{{ asset('/assets/frontend/dist/images/twitter_square-48.png') }}"></a></li>
-                  <li><a href="https://www.facebook.com/mundopremiado/" target="_blank" title="Acesse nossa página no facebook"><img src="{{ asset('/assets/frontend/dist/images/facebook_square-48.png') }}"></a></li>
-                  <li><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco"><img src="{{ asset('/assets/frontend/dist/images/email.png') }}"></a></li>
+                  <li><a href="https://twitter.com/mundopremiado" target="_blank" title="Acesse nosso twitter"><img alst="twitter" src="{{ asset('/assets/frontend/dist/images/twitter_square-48.png') }}"></a></li>
+                  <li><a href="https://www.facebook.com/mundopremiado/" target="_blank" title="Acesse nossa página no facebook"><img alt="facebook" src="{{ asset('/assets/frontend/dist/images/facebook_square-48.png') }}"></a></li>
+                  <li><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco"><img alt="email" src="{{ asset('/assets/frontend/dist/images/email.png') }}"></a></li>
                 </ul>
 
             </div>

@@ -22,6 +22,13 @@ class Promocoes extends Model
         return $this->hasOne('App\Premios','prom_id','id');
     }
 
+
+    public function sorteios()
+    {
+        return $this->hasOne('App\Sorteios','prom_id','id');
+    }
+
+
 	public function getPermaLink()
 	{
 
@@ -43,6 +50,24 @@ class Promocoes extends Model
 
 		return $valor;
 	}
+
+
+	public function getUrlGanhadores(){
+
+		if($this->attributes['url_ganhadores']):
+
+			return $this->attributes['url_ganhadores'];
+
+		else:
+
+			return $this->attributes['url_hotsite'];
+		
+		endif;
+
+	}
+
+
+
 
    // this is a recommended way to declare event handlers
     protected static function boot() {

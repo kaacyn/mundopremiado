@@ -140,15 +140,26 @@ h1.titulo{
 	font-size: 16px;
 	margin-bottom: 15px;
 	background-color: #C5CE9F;
+} 
+
+.promocoes .tabela-premios h3{
+	margin-bottom: 30px;
+	text-align: right;
+	font-weight: bold;
 }
+
+.promocoes .tabela-premios a{
+	/*font-weight: bold; */
+}
+
 
 .promocoes .tabela-premios .total-em-premios{
 	text-align: right;
 }
 
 .promocoes .tabela-premios table {
-	margin-bottom: 30px;
 	width: 100%;
+	margin-bottom: 15px;
 }
 
 .promocoes .tabela-premios table thead,
@@ -163,6 +174,22 @@ h1.titulo{
 
 }
 
+
+.promocoes .tabela-premios  .sorteio{
+	display: block;
+	background-color:#EFEFEF; 
+	padding: 5px 5px 5px 10px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.promocoes .tabela-premios  .btn-participe{
+	float: right;
+	padding: 2px 12px;
+}
+
+
+
 .promocoes .tabela-premios table td{
 	border: 1px solid #EFEFEF;
 }
@@ -171,6 +198,7 @@ h1.titulo{
 .promocoes .tabela-premios table th.nome{
 	padding: 5px 10px;
 	border-left: 1px solid #EFEFEF;
+	font-weight: normal;
 }
 
 .promocoes .tabela-premios table td.valor{
@@ -179,15 +207,18 @@ h1.titulo{
 }
 
 .promocoes .tabela-premios table .quantidade{
-	min-width: 140px;
+	width: 20%;
 	text-align: right;
 	vertical-align: middle;
+	font-weight: normal;
+	word-wrap: break-word;
 }
 
 .promocoes .tabela-premios table th.valor{
 	min-width: 140px;
 	text-align: right;
 	word-wrap: break-word;
+	width: 20%;
 }
 
 .promocoes  .navegacao{

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Promocoes;
+use App\Sorteios;
 use App\Premios;
 
 
@@ -42,8 +43,10 @@ class PromocoesController extends Controller
      */
     public function create()
     {
+        $sorteios = $this->getSorteiosArray();
 
-        return View::make('sysadmin.promocoes.create');
+        return View::make('sysadmin.promocoes.create')
+         ->with('sorteios',$sorteios);
     }
 
     /**
@@ -84,17 +87,18 @@ class PromocoesController extends Controller
 
             // store
             $promocao = new Promocoes;
-            $promocao->titulo            = Input::get('titulo');
-            $promocao->situacao          = Input::get('situacao');
-            $promocao->descricao         = Input::get('descricao');
-            $promocao->url_hotsite       = Input::get('url_hotsite');
-            $promocao->url_regulamento   = Input::get('url_regulamento');
+            $promocao->titulo            = trim(Input::get('titulo'));
+            $promocao->situacao          = trim(Input::get('situacao'));
+            $promocao->descricao         = trim(Input::get('descricao'));
+            $promocao->url_hotsite       = trim(Input::get('url_hotsite'));
+            $promocao->url_regulamento   = trim(Input::get('url_regulamento'));
             $promocao->valor_minimo      = RealForDecimal(Input::get('valor_minimo'));
            // $promocao->valor_premiacao   = RealForDecimal(Input::get('valor_premiacao'));
-            $promocao->regiao            = Input::get('regiao');
-            $promocao->premiacao         = Input::get('premiacao');
+            $promocao->regiao            = trim(Input::get('regiao'));
+            $promocao->premiacao         = trim(Input::get('premiacao'));
             $promocao->data_inicio       = DateBRForYMD(Input::get('data_inicio'));
             $promocao->data_fim          = DateBRForYMD(Input::get('data_fim'));
+            $promocao->url_ganhadores    = trim(Input::get('url_ganhadores'));
 
             $promocao->save();
 
@@ -106,26 +110,9 @@ class PromocoesController extends Controller
             $this->salveImagem(  $file, $promocao, $request );
 
 
-             $premios      =    Input::get('premios');  
+            $sorteios      =    Input::get('sorteios');  
 
-             $x = 0;
-
-             if(!empty($premios)):
-
-                 foreach($premios['quantidade'] as $premio):
-                    if( $premios['quantidade'][$x] != 0 ):
-
-                        $premioPromocao               = new Premios;
-                        $premioPromocao->prom_id      = $promocao->id;
-                        $premioPromocao->nome         = $premios['nome'][$x];
-                        $premioPromocao->quantidade   = $premios['quantidade'][$x];
-                        $premioPromocao->valor        = RealForDecimal($premios['valor'][$x]);
-                        $premioPromocao->save(); 
-                    endif;
-                    $x++;
-                 endforeach;
-                // exit;
-              endif;
+            $this->setSorteiosUpdate($sorteios,$promocao->id);
 
             // redirect
             Session::flash('message', 'Promoção criado com sucesso');
@@ -161,12 +148,17 @@ class PromocoesController extends Controller
         $promocao = Promocoes::find($id);
         $premios = Premios::where('prom_id', $promocao->id)->get(); 
 
+        $sorteios = $this->getSorteiosArray($promocao->id);
 
+        // echo "<pre>";
+        // print_r( $sorteios );
+        // echo "</pre>";
 
         // show the edit form and pass the produto
         return View::make('sysadmin.promocoes.edit')
             ->with('promocao', $promocao)
-            ->with('premios',$premios );
+            ->with('premios',$premios )
+            ->with('sorteios',$sorteios);
 
 
     }
@@ -206,19 +198,20 @@ class PromocoesController extends Controller
             // store
             $promocao = Promocoes::find($id);
             $promocao->titulo            = Input::get('titulo');
-            $promocao->situacao            = Input::get('situacao');
+            $promocao->situacao          = trim(Input::get('situacao'));
             $promocao->slug              = Input::get('slug');
-            $promocao->descricao         = Input::get('descricao');
+            $promocao->descricao         = trim(Input::get('descricao'));
 
 
-            $promocao->url_hotsite       = Input::get('url_hotsite');
-            $promocao->url_regulamento   = Input::get('url_regulamento');
+            $promocao->url_hotsite       = trim(Input::get('url_hotsite'));
+            $promocao->url_regulamento   = trim(Input::get('url_regulamento'));
             $promocao->valor_minimo      = RealForDecimal(Input::get('valor_minimo'));
            // $promocao->valor_premiacao   = RealForDecimal(Input::get('valor_premiacao'));
-            $promocao->regiao            = Input::get('regiao');
+            $promocao->regiao            = trim(Input::get('regiao'));
             $promocao->premiacao         = Input::get('premiacao');
             $promocao->data_inicio       = DateBRForYMD(Input::get('data_inicio'));
             $promocao->data_fim          = DateBRForYMD(Input::get('data_fim'));
+            $promocao->url_ganhadores    = trim(Input::get('url_ganhadores'));
 
             $promocao->save();
 
@@ -228,32 +221,10 @@ class PromocoesController extends Controller
 
             $this->salveImagem(  $file, $promocao, $request );
 
-             $premios      =    Input::get('premios');  
+            $sorteios      =    Input::get('sorteios');  
 
-             //echo "<pre>";
-           //  print_r($premios['nome'][0]); exit;
-
-            Premios::where('prom_id', $promocao->id)->delete();
-
-             $x = 0;
-
-             if(!empty($premios)):
-
-                 foreach($premios['quantidade'] as $premio):
-                    if( $premios['quantidade'][$x] != 0 ):
-
-                        $premioPromocao               = new Premios;
-                        $premioPromocao->prom_id      = $promocao->id;
-                        $premioPromocao->nome         = $premios['nome'][$x];
-                        $premioPromocao->quantidade   = $premios['quantidade'][$x];
-                        $premioPromocao->valor        = RealForDecimal($premios['valor'][$x]);
-                        $premioPromocao->save(); 
-                    endif;
-                    $x++;
-                 endforeach;
-                // exit;
-              endif;
-
+            $this->setSorteiosUpdate($sorteios,$promocao->id);
+          
             // redirect
             Session::flash('message', 'Promoção atualizado com sucesso');
             return Redirect::to('sysadmin/promocoes');
@@ -294,4 +265,103 @@ class PromocoesController extends Controller
             $promocao->save(); 
         endif;
     }
+
+
+    public function getSorteiosArray($prom_id=false){
+
+        if($prom_id ==  false):
+            return array();
+        endif;
+
+        $oObject        = Sorteios::where('prom_id', $prom_id)->get();
+        $sorteio_array  = array();
+        $premio_array   = array();
+
+        if(!empty($oObject)):
+            foreach($oObject as $sorteio):
+
+                $oPremios        = Premios::where('sort_id', $sorteio->id)->get();
+                if(!empty( $oPremios )):
+                    foreach( $oPremios as $premio):
+                        
+                        $premio_array[] = array(
+                            'sort_id'   =>  $premio->sort_id,
+                            'quantidade'=>  $premio->quantidade,
+                            'nome'      =>  trim($premio->nome),
+                            'descricao' =>  trim($premio->descricao),
+                            'valor'     =>  DecimalForReal($premio->valor),
+                            'prom_id'   =>  $premio->prom_id
+                        );
+
+                    endforeach;
+                endif;
+
+                $sorteio_array[] = array(
+                    'id'                =>  $sorteio->id,
+                    'prom_id'           =>  $prom_id,
+                    'observacao'        =>  trim($sorteio->observacao),
+                    'periodo_inicio'    =>  DateYMDforBR($sorteio->periodo_inicio),
+                    'periodo_fim'       =>  DateYMDforBR($sorteio->periodo_fim),
+                    'data_sorteio'      =>  DateYMDforBR($sorteio->data_sorteio),
+                    'premios'           =>  $premio_array
+                    );
+
+                $premio_array = array();
+
+            endforeach; 
+        endif;
+
+        return  $sorteio_array;
+    }
+
+    public function setSorteiosUpdate($sorteios, $prom_id){
+
+        Sorteios::where('prom_id', $prom_id)->delete();
+
+        Premios::where('prom_id', $prom_id)->delete();
+
+         if(!empty($sorteios)):
+
+             foreach($sorteios as $sorteio):
+
+                if( is_array($sorteio) ):
+
+                    $oSorteio                  = new Sorteios;
+                    $oSorteio->prom_id         = $prom_id;
+                    $oSorteio->observacao      = trim($sorteio['observacao']);
+                    $oSorteio->periodo_inicio  = DateBRForYMD($sorteio['periodo_inicio']);
+                    $oSorteio->periodo_fim     = DateBRForYMD($sorteio['periodo_fim']);
+                    $oSorteio->data_sorteio    = DateBRForYMD($sorteio['data_sorteio']);
+                    $oSorteio->save();
+
+
+                     if(!empty($sorteio['premios'])):
+                         foreach($sorteio['premios'] as $premio):
+
+                            if( is_array($premio) ):
+
+                                $oPremios                    = new Premios;
+                                $oPremios->sort_id           = $oSorteio->id;
+                                $oPremios->quantidade        = $premio['quantidade'];
+                                $oPremios->nome              = trim($premio['nome']);
+                                $oPremios->descricao         = trim($premio['descricao']);
+                                $oPremios->valor             = RealForDecimal($premio['valor']);
+                                $oPremios->prom_id           = $prom_id;
+                                $oPremios->save();
+
+                            endif;
+
+                         endforeach;
+                      endif;
+
+                endif;
+
+             endforeach;
+            // exit;
+          endif;
+
+    }
+
 }
+
+
