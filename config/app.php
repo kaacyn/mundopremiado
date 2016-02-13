@@ -146,8 +146,8 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         #sitemaps
-        'Watson\Sitemap\SitemapServiceProvider'
-
+        'Watson\Sitemap\SitemapServiceProvider',
+        GrahamCampbell\HTMLMin\HTMLMinServiceProvider::class
         #Breadcrumb
         //Mj\Breadcrumb\BreadcrumbServiceProvider
 
@@ -203,7 +203,9 @@ return [
         'HTML'      => 'Illuminate\Html\HtmlFacade',
 
         #sitemaps
-        'Sitemap' => 'Watson\Sitemap\Facades\Sitemap'
+        'Sitemap' => 'Watson\Sitemap\Facades\Sitemap',
+
+        'HTMLMin' => GrahamCampbell\HTMLMin\Facades\HTMLMin::class
        // 'Breadcrumb' => 'Mj\Breadcrumb\Facades\breadcrumb'
     ],
 
