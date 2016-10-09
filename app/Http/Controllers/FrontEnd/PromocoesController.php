@@ -16,7 +16,7 @@ class PromocoesController extends Controller
      */
     public function index()
     {
-        echo "teste"; exit;
+        //echo "teste"; exit;
     }
 
     /**

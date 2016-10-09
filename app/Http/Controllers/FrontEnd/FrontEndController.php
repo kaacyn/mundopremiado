@@ -11,6 +11,8 @@ use App\Promocoes;
 use App\Premios;
 use Mail;
 Use Breadcrumb;
+Use Input;
+Use App\Newsletter;
 use DB;
 
 use mjanssen\BreadcrumbsBundle\Breadcrumbs;
@@ -144,8 +146,21 @@ class FrontEndController extends Controller
         // get previous  user
         $previous  = Promocoes::where('id', '>', $promocao->id)->where('situacao', 'publicado')->orderBy('id','asc')->first();
 
+        # Cadastro de newsletter
+        $newsletter = false;
+        if(Input::get('nome') and Input::get('email')):
 
-        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes','next','previous')) ;      
+            $newsletter = new Newsletter;
+            $newsletter->nome            = trim(Input::get('nome'));
+            $newsletter->email           = trim(Input::get('email'));
+            $newsletter->prom_id         = trim(Input::get('prom_id'));
+            $newsletter->save();
+
+            $newsletter = true;
+
+        endif;
+
+        return view('frontend.showpromocoes',compact('promocao','breadcrumb','outraspromocoes','next','previous','newsletter')) ;      
 
     }
 

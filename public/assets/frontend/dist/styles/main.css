@@ -253,6 +253,35 @@ h1.titulo{
 
 }
 
+.promocoes .fique-por-dentro{
+	line-height: 28px;
+	margin-bottom: 30px;
+}
+
+
+.promocoes .fique-por-dentro p{
+	margin-bottom: 4px;
+}
+
+.promocoes .fique-por-dentro label{
+	display: block;
+}
+
+.promocoes .fique-por-dentro input{
+	width: 100%;
+	padding: 5px;
+	border:1px solid #C5CE9F;
+	margin-bottom: 8px;
+}
+
+.promocoes .fique-por-dentro h2{
+	background-color: #EFEFEF;
+	padding: 4px 10px;
+	font-size: 16px;
+	margin-bottom: 8px;
+
+}
+
 .promocoes .bar-info{
 	margin-bottom: 15px;
 }
@@ -265,6 +294,15 @@ h1.titulo{
 	background-color: #F7F796;
 	margin-bottom: 30px;
 	font-size: 10px;
+	line-height: 18px;
+	padding: 12px;
+}
+
+.promocoes .newsletter_ok{
+	background-color: #418E40;
+	margin-bottom: 30px;
+	font-size: 12px;
+	color:#FFF;
 	line-height: 18px;
 	padding: 12px;
 }
@@ -301,6 +339,17 @@ h1.titulo{
 	/*font-weight: bold; */
 }
 
+.promocoes  .promocao_encerrada{
+	margin-bottom: 15px;
+	background: #D87F43;
+ 	padding: 12px;
+ 	color: #FFF;
+}
+
+.promocoes .promocao_encerrada a{
+	color: #C5CE9F;
+	font-weight: bold;
+}
 
 .promocoes .tabela-premios .total-em-premios{
 	text-align: right;

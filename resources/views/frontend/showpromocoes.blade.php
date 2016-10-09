@@ -27,7 +27,28 @@
 	  				<a class="btn btn-participe" rel="nofollow"  target="_blank" href="{{ $promocao->url_hotsite }}" title="Saiba mais sobre a promoção {{ $promocao->titulo }}">Participe</a>
 	  			<? endif?>
 	  		</div>
+	  		<div class="fique-por-dentro">
+	  			<h2>Fique por dentro!</h2>
+		  		<? if( $newsletter == true ): ?>
+		  			<div class="newsletter_ok">
+		  				Seu e-mail foi cadastrado com sucesso.
+		  			</div>
+		  		<? else: ?>
+		  			<p>Fique por dentro das promoções que rola em nosso site.</p>
+		  			<form action="" method="post">
+			  			<label>Seu nome:</label>
+			  			<input value="" name="nome" required>
+						<label>Seu e-mail:</label>
+			  			<input type="email" value="" name="email" required>
+			  			<input type="hidden" value="<?=$promocao->id?>" name="prom_id">
+			  			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+			         	<div class="box-btn">
+				  			<input class="btn btn-participe" type="submit" value="Cadastrar">
+				  		</div>
+				  	</form>
+				 <?endif?>
+	  		</div>
 	  		<div class="mais-promocoes">
 	  			<h2>Outras promoções</h2>
 	  			<? foreach($outraspromocoes as $outrapromocao): ?>
@@ -94,25 +115,35 @@
 						<!-- <span class="observacao">* Valor simbólico. O valor não fornecido no regulamento oficial da promoção.</span> -->
 					</div>
 		        <? endif?>
-		    
+
+		    <? if(!$promocao->isEncerrada()): ?>
+			    <div class="promocao_encerrada">
+			     	Essa promoção já está encerrada, <a href="{{ $promocao->getUrlGanhadores() }}" target="_blank" title="Clique Aqui">clique aqui</a> para ver a lista de ganhadores. 
+
+			     	Quer participar de mais promoções como esta? <a href="<?=url('/') ?>" title="Promoções">Vem comigo!</a>
+				</div>
+			<? endif; ?>
+
+
 		    <div class="nota">
 		    	NOTA: Todos os dados acima foram coletados do regulamento oficial da promoção com a proposta de lhe apresentar em uma forma mais simples e objetiva. Essas informações podem estar desatualizadas ou sujeitas a erros. Não deixe de ler o regulamento oficial da promoção antes de qualquer ação. Caso encontre alguma inconformidade <strong><a href="{{ URL::to('fale-conosco') }}" title="Fale Conosco">entre em contato conosco</a></strong>. 
 		    </div>
 
+		    <? if($promocao->isEncerrada()): ?>
+			    <div class="navegacao">
+			    	<div class="anterior">
+						<? if(is_object($previous)):?>
+					    	<a class = "btn btn-participe" href="{{ $previous->getPermaLink() }}" title="{{ $previous->titulo }}">anterior</a>
+						<? endif ?>
+					</div>
+					<div class="proximo">
+					    <? if(is_object($next)):?>
+					    	<a class = "btn btn-participe" href="{{ $next->getPermaLink() }}" title="{{ $next->titulo }}">próxima</a>
+						<? endif?>
+					</div>
+				</div>
 
-		    <div class="navegacao">
-		    	<div class="anterior">
-					<? if(is_object($previous)):?>
-				    	<a class = "btn btn-participe" href="{{ $previous->getPermaLink() }}" title="{{ $previous->titulo }}">anterior</a>
-					<? endif ?>
-				</div>
-				<div class="proximo">
-				    <? if(is_object($next)):?>
-				    	<a class = "btn btn-participe" href="{{ $next->getPermaLink() }}" title="{{ $next->titulo }}">próxima</a>
-					<? endif?>
-				</div>
-			</div>
-			
+			<? endif?>
 
 
 			<div id="disqus_thread"></div>

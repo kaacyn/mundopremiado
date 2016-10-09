@@ -17,7 +17,8 @@ get('/', 'frontend\FrontEndController@index');
 get('/sobre', 'frontend\FrontEndController@Sobre');
 
 get('/promocoes/{slug}', 'frontend\FrontEndController@showPromocoes');
-
+/*post para cadastro de newlatter*/
+post('/promocoes/{slug}', 'frontend\FrontEndController@showPromocoes');
 
 
 Route::get('sitemap.xml', 

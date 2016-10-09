@@ -1,5 +1,5 @@
 <div class="bar-info">
-	<?=contagemRegressiva(date('Ymd'), $promocao->data_fim);?>
+	<?=$promocao->contagemRegressiva();?>
 
 	<? if(!empty($promocao->valor_minimo)): ?>
 	 investimento mínimo para participar: <strong>R$ <?=DecimalForReal($promocao->valor_minimo)?></strong>,
